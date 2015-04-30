@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="40px" viewBox="0 0 30 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_action_product_share@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sauvignon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product-Page" sketch:type="MSArtboardGroup" transform="translate(-470.000000, -944.000000)" fill="#C390FF">
+            <g id="product-card" sketch:type="MSLayerGroup">
+                <g id="footer" transform="translate(20.000000, 916.000000)" sketch:type="MSShapeGroup">
+                    <g id="edit-2" transform="translate(425.000000, 8.000000)">
+                        <g id="Fill-371-+-Fill-372-+-Fill-373">
+                            <path d="M34.558,27.675 L33.5714286,26.7083333 L40.474,20 L47.3748571,26.7083333 L46.3882857,27.675 L40.474,21.925 L34.558,27.675" id="Fill-371"></path>
+                            <path d="M39.5714286,21.6666667 L40.9668571,21.6666667 L40.9668571,46.275 L39.5714286,46.275 L39.5714286,21.6666667 Z" id="Fill-372"></path>
+                            <path d="M54.9468571,59.95 L25,59.95 L25,30.8333333 L36.1248571,30.8333333 L36.1248571,32.1833333 L26.3954286,32.1833333 L26.3954286,58.5916667 L53.5522857,58.5916667 L53.5522857,32.1833333 L44.1151429,32.1833333 L44.1151429,30.8333333 L54.9468571,30.8333333 L54.9468571,59.95" id="Fill-373"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

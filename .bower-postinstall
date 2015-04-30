@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cp app/bower_components/normalize.css/normalize.css app/scss/bower_components/_normalize.scss
+cp app/bower_components/flexboxgrid/src/css/flexboxgrid.css app/scss/bower_components/_flexboxgrid.scss

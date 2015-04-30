@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_action_product_edit</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sauvignon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product-Page" sketch:type="MSArtboardGroup" transform="translate(-550.000000, -952.000000)" fill="#C390FF">
+            <g id="product-card" sketch:type="MSLayerGroup">
+                <g id="footer" transform="translate(20.000000, 916.000000)" sketch:type="MSShapeGroup">
+                    <g id="edit" transform="translate(515.000000, 23.000000)">
+                        <g id="Fill-334-+-Fill-335-+-Fill-337" transform="translate(15.000000, 13.000000)">
+                            <path d="M29.5434783,1.4709175 L31.8457174,3.76425083 C33.4242174,2.1909175 33.8048043,1.81758417 32.6550217,0.670917499 C31.5034565,-0.484638056 31.1228696,-0.102415834 29.5434783,1.4709175" id="Fill-334"></path>
+                            <path d="M6.36956522,26.9333333 L8.6833913,21.3688889 L29.2243913,0.888888889 L32.4901304,4.14222222 L11.7093696,24.7822222 L6.36956522,26.9333333 L6.36956522,26.9333333 Z" id="Fill-335"></path>
+                            <path d="M31.1386087,32.9466667 L0,32.9466667 L0,1.88888889 L25.5073478,1.88888889 L25.5073478,3.32888889 L1.44302174,3.32888889 L1.44302174,31.5066667 L29.695587,31.5066667 L29.695587,7.38222222 L31.1386087,7.38222222 L31.1386087,32.9466667" id="Fill-337"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

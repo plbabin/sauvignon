@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_clear_fieldtext_white@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sauvignon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Add---Step-#2" sketch:type="MSArtboardGroup" transform="translate(-441.000000, -61.000000)">
+            <g id="Slices" sketch:type="MSLayerGroup" transform="translate(12.000000, 61.000000)"></g>
+            <g id="header-nav" sketch:type="MSLayerGroup" transform="translate(0.000000, 35.000000)">
+                <g id="Search-Bar" transform="translate(17.000000, 27.000000)" sketch:type="MSShapeGroup">
+                    <g id="clear" transform="translate(425.000000, 0.000000)">
+                        <path d="M17.000368,34 C7.62661529,34 0,26.3741069 0,16.9963195 C0,7.62589305 7.62661529,0 17.000368,0 C26.3741207,0 34,7.62589305 34,16.9963195 C34,26.3741069 26.3741207,34 17.000368,34 L17.000368,34 Z" id="Fill-209" fill="#FFFFFF"></path>
+                        <path d="M22.306,23.01 L11,11.71 L11.707,11 L23.013,22.3 L22.306,23.01" id="Fill-210" fill="#343535"></path>
+                        <path d="M11.707,23.01 L11,22.3 L22.306,11 L23.013,11.71 L11.707,23.01" id="Fill-211" fill="#343535"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

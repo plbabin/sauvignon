@@ -1,0 +1,46 @@
+.nav{
+  background:$nav-bg;
+  color:$nav-color;
+  height:$nav-height;
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  
+  .nav__list{
+    display:flex;
+    padding:0;
+    margin:0;
+    width:100%;
+  }
+  .nav__element{
+    flex:1;
+    list-style:none;
+    padding:0;
+    text-align: center;
+    display:flex;
+
+    a{
+      flex:1;
+      display:block;
+      line-height:59px;
+    }
+  }
+  .nav__element--add{
+    max-width:59px;
+    position: relative;
+    
+    a{
+      height:59px;
+      width:59px;
+      position:relative;
+      top:-10px;
+      background:$brand-secondary;
+      border-radius:50%;
+      border:5px solid $nav-bg;
+      line-height:59px;
+    }
+    
+  }
+
+}

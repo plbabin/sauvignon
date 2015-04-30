@@ -1,0 +1,44 @@
+// Reset the box-sizing
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+  -webkit-tap-highlight-color: $brand-secondary;
+}
+
+body {
+  font-family: $font-family-base;
+  -webkit-font-smoothing: antialiased;
+  line-height: $line-height-base;
+  color: $text-color;
+  background-color: $body-bg;
+  //padding-top: $header-height;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.app{
+  display:flex;
+  flex-direction:column;
+
+  &__header{
+    flex:1;
+  }
+
+  &__content{
+    flex:1;
+  }
+
+  &__nav{
+    flex:1;
+  }
+}

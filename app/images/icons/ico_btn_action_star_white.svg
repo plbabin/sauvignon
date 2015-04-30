@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="32px" viewBox="0 0 36 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_btn_action_star_white</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sauvignon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product-Page" sketch:type="MSArtboardGroup" transform="translate(-256.000000, -953.000000)" fill="#FFFFFF">
+            <g id="product-card" sketch:type="MSLayerGroup">
+                <g id="footer" transform="translate(20.000000, 916.000000)" sketch:type="MSShapeGroup">
+                    <g id="to-try" transform="translate(215.000000, 23.000000)">
+                        <g id="star_white" transform="translate(21.000000, 14.000000)">
+                            <path d="M35.1794872,12.2384615 L21.7201923,12.2384615 L17.5897436,0 L13.4592949,12.2384615 L0,12.2384615 L11.0092949,19.7692308 L6.72179487,32.0076923 L17.5897436,24.4230769 L28.4576923,32.0076923 L24.1623397,19.7692308 L35.1794872,12.2384615 L35.1794872,12.2384615 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

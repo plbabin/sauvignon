@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="30px" viewBox="0 0 36 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_btn_action_love_purple</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sauvignon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product-Page" sketch:type="MSArtboardGroup" transform="translate(-68.000000, -954.000000)" fill="#C390FF">
+            <g id="product-card" sketch:type="MSLayerGroup">
+                <g id="footer" transform="translate(20.000000, 916.000000)" sketch:type="MSShapeGroup">
+                    <g id="loved" transform="translate(23.000000, 23.000000)">
+                        <g id="ico_love_purple" transform="translate(25.000000, 15.000000)">
+                            <path d="M9.0829,0 C3.33206667,0 0.0337333333,3.22333333 0.0337333333,8.8425 C0.0337333333,13.4541667 4.4179,17.4383333 4.46206667,17.4775 L17.3945667,29.9525 C17.5162333,30.0741667 17.6537333,30.0908333 17.7254,30.0908333 C17.7979,30.0908333 17.9345667,30.0741667 18.0462333,29.9633333 L30.9379,17.5466667 C32.0212333,16.5108333 35.4179,12.9425 35.4179,8.8425 C35.4179,3.22333333 32.1195667,0 26.3687333,0 C23.0820667,0 19.9095667,2.6475 18.3112333,4.225 L17.7254,4.80333333 L17.1404,4.225 C15.5420667,2.6475 12.3695667,0 9.0829,0 L9.0829,0 Z" id="Fill-25"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="55px" height="52px" viewBox="0 0 55 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_btn_action_love_active_grey</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sauvignon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product-List" sketch:type="MSArtboardGroup" transform="translate(-206.000000, -542.000000)">
+            <g id="Slices" sketch:type="MSLayerGroup" transform="translate(136.000000, 541.000000)"></g>
+            <g id="content" sketch:type="MSLayerGroup" transform="translate(0.000000, 124.000000)" fill="#474848">
+                <g id="cell2" transform="translate(0.000000, 340.000000)" sketch:type="MSShapeGroup">
+                    <path d="M233.23,124.109 C232.547,124.109 231.909,123.847 231.432,123.37 L215.963,108.446 C215.941,108.429 210,103.184 210,96.611 C210,88.832 214.927,84 222.859,84 C227.052,84 230.938,86.867 233.23,88.977 C235.523,86.867 239.409,84 243.602,84 C251.534,84 256.461,88.832 256.461,96.611 C256.461,102.324 251.912,107.12 250.518,108.454 L235.016,123.383 C234.552,123.847 233.914,124.109 233.23,124.109 L233.23,124.109 Z" id="active"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
