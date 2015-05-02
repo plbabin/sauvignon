@@ -10,8 +10,10 @@ var routes = (
   <Route name="app" path="/" handler={ App }>
     
     <Route name="info" handler={ Info } />
-    <Route name="products" handler={ Info } />
-    <Route name="store" handler={ Info } />
+    <Route name="products/totry" handler={ Info } />
+    <Route name="products/loved" handler={ Info } />
+    <Route name="settings" handler={ Info } />
+    <Route name="stores" handler={ Info } />
     <Route name="add" handler={ Info } />
     <Route name="home" handler={ Home } />
 

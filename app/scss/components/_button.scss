@@ -1,0 +1,41 @@
+.btn_add_product{
+  height:59px;
+  width:59px;
+  position:relative;
+  background-color:$brand-secondary;
+  border-radius:50%;
+  border:5px solid $nav-bg;
+  line-height:1;
+  transition:0.15s ease opacity;
+
+  &.is-active{
+    border-color:$brand-secondary;
+    transform: rotate(-45deg);
+  }
+
+  .icons{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    opacity:0.8;
+  }
+}
+
+.btn_add_product_type{
+  height:59px;
+  width:59px;
+  position:relative;
+  background-color:#F0F0F0;
+  border-radius:50%;
+  line-height:1;
+  transition:0.15s ease transform;
+
+  .icons{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    opacity:0.8;
+  }
+}

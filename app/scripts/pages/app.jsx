@@ -1,10 +1,25 @@
 import React from 'react';
 import { RouteHandler } from 'react-router';
-import Header from '../components/header.jsx'
+import Header from '../components/header.jsx';
+import Navigation from '../components/navigation.jsx';
+import AddScreenSelector from '../components/add_screen_selector.jsx';
 import { Link } from 'react-router';
 
 class App extends React.Component {
   
+  constructor(props, context){
+    super(props);
+    this.state = {isAddScreenActive: false};
+  }
+
+  toggleAddScreen(e){
+    e.preventDefault();
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    console.log('toggleModal');
+    this.setState({isAddScreenActive:!this.state.isAddScreenActive})
+  }
+
   render() {
     return (
       <div className="app">
@@ -12,17 +27,13 @@ class App extends React.Component {
         <div className="app__content content">
           <RouteHandler/>
         </div>
-        <nav className="app__nav nav">
-          <ul className="nav__list">
-            <li className="nav__element nav__element--products"><Link to="products">Products</Link></li>
-            <li className="nav__element nav__element--add"><Link to="add">Add</Link></li>
-            <li className="nav__element nav__element--stores"><Link to="store">Store</Link></li>
-          </ul>
-        </nav>
+        <Navigation isAddScreenActive={this.state.isAddScreenActive} addScreenOnClick={this.toggleAddScreen.bind(this)} />
+        <AddScreenSelector isActive={this.state.isAddScreenActive} toggleModal={this.toggleAddScreen.bind(this)} />
       </div>
     );
   }
   
 }
 
+React.initializeTouchEvents(true);
 export default App;

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="22px" height="36px" viewBox="0 0 22 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="10px" height="18px" viewBox="0 0 10 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
-    <title>ico_arrow_next@2x</title>
+    <title>ico_arrow_next</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Sauvignon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Outlets-page" sketch:type="MSArtboardGroup" transform="translate(-591.000000, -308.000000)">
-            <g id="Slices" sketch:type="MSLayerGroup" transform="translate(22.000000, 150.000000)"></g>
+    <g id="Sauvignon-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup" transform="translate(-570.000000, -158.000000)" fill="#DADADA">
+            <g id="arrow" transform="translate(569.000000, 158.000000)" sketch:type="MSShapeGroup">
+                <path d="M10.0711273,9.2793317 L1.115794,1.11579003 C0.97153474,0.984748365 0.960627333,0.761623365 1.09116437,0.616415031 C1.22134956,0.471206698 1.44407178,0.460581698 1.58797918,0.591623365 L10.5433125,8.75516503 C10.6875718,8.8862067 10.698831,9.1093317 10.5679421,9.25454003 C10.4986273,9.3324567 10.4032755,9.37141503 10.3072199,9.37141503 C10.2231273,9.37141503 10.1386829,9.33954003 10.0711273,9.2793317 Z" id="Fill-306"></path>
+                <path d="M1.35176374,17.5137067 C1.25606004,17.5137067 1.16035633,17.4747484 1.09104152,17.3968317 C0.96050448,17.2516234 0.971763739,17.0284984 1.11567115,16.8974567 L10.0710045,8.7374567 C10.2152637,8.60641503 10.4376341,8.61704003 10.5678193,8.76224836 C10.6987082,8.9074567 10.6870971,9.1305817 10.5431897,9.26162336 L1.58785633,17.4216234 C1.52065263,17.4818317 1.43585633,17.5137067 1.35176374,17.5137067" id="Fill-307"></path>
+            </g>
         </g>
     </g>
 </svg>

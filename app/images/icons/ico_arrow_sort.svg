@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="5px" height="8px" viewBox="0 0 5 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_arrow_sort</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sauvignon-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup" transform="translate(-136.000000, -1.000000)" fill="#BA90FF">
+            <g id="Shape-desc-+-ico_sort_up" transform="translate(136.000000, 0.000000)" sketch:type="MSShapeGroup">
+                <path d="M2.74794634,1.19041667 C2.59413428,0.936527778 2.34252217,0.936527778 2.18871011,1.19041667 L0.0815491365,4.67041667 C-0.0721825647,4.92430556 -0.00210726757,5.13208333 0.2374506,5.13208333 L1.34507425,5.13208333 L1.78063401,5.13208333 L1.78063401,8.39619444 C1.78063401,8.72741667 1.97655554,8.99841667 2.21619377,8.99841667 L2.72030196,8.99841667 C2.95985982,8.99841667 3.15586172,8.72752778 3.15586172,8.39619444 L3.15586172,5.13208333 L3.59142148,5.13208333 L4.69904512,5.13208333 C4.93876371,5.13208333 5.00883901,4.92430556 4.85510731,4.67041667 L2.74794634,1.19041667 Z" id="Shape-desc"></path>
+            </g>
+        </g>
+    </g>
+</svg>

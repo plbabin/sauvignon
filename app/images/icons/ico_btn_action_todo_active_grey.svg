@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="55px" height="52px" viewBox="0 0 55 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="28px" height="27px" viewBox="0 0 28 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
     <title>ico_btn_action_todo_active_grey</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Sauvignon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Product-List" sketch:type="MSArtboardGroup" transform="translate(-398.000000, -541.000000)">
-            <g id="Slices" sketch:type="MSLayerGroup" transform="translate(136.000000, 541.000000)"></g>
-            <g id="content" sketch:type="MSLayerGroup" transform="translate(0.000000, 124.000000)" fill="#474848">
-                <g id="cell2" transform="translate(0.000000, 340.000000)" sketch:type="MSShapeGroup">
-                    <path d="M450.251282,96.5927885 L431.408269,96.5927885 L425.625641,79 L419.843013,96.5927885 L401,96.5927885 L416.413013,107.418269 L410.410513,125.011058 L425.625641,114.108173 L440.840769,125.011058 L434.827276,107.418269 L450.251282,96.5927885 L450.251282,96.5927885 Z" id="Shape-2"></path>
-                </g>
-            </g>
-        </g>
+    <g id="Sauvignon-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup" transform="translate(-131.000000, 0.000000)"></g>
     </g>
 </svg>

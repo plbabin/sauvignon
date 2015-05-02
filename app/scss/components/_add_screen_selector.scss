@@ -1,0 +1,41 @@
+.add-screen-selector{
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+
+  .modal__content{
+    background:transparent;
+  }
+
+  .btn_add_product{
+    position:absolute;
+    bottom:-7px;
+    left:50%;
+    margin-left: -29.5px;
+    transform: rotate(0);
+    transition:0.15s ease transform;
+    z-index:10;
+
+    &.is-active{
+      transform: rotate(-45deg);
+    }
+  }
+
+  .btn_add_product_type{
+    position:absolute;
+    bottom:-7px;
+    left:50%;
+    margin-left: -29.5px;
+    transition:0.15s ease transform;
+    z-index:5;
+    
+    &--camera.is-active{
+      transform: translate(-100%, -150%);
+    }
+
+    &--search.is-active{
+      transform: translate(100%, -150%);
+    }
+  }
+}

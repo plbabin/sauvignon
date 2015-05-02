@@ -1,0 +1,61 @@
+.modal{
+  $paddingY:50px;
+  $paddingX:10px;
+  position: fixed;
+  left:$paddingX;
+  right:$paddingX;
+  bottom:$paddingY;
+  top:$paddingY;
+  height: auto;
+  z-index: 2000;
+  visibility: hidden;
+  backface-visibility: hidden;
+
+  &--show ~ .modal__overlay{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &--show{
+    visibility: visible;
+  }
+
+
+  &--card-effect{
+    .modal__content{
+      transform: translateY(20%);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    &.modal--show .modal__content{
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__content{
+    background: #FCFCFC;
+    position: relative;
+    border-radius: 12px;
+    margin: 0 auto;
+    padding:20px;
+    height:100%;
+    width:100%;
+  }
+  
+}
+
+.modal__overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  background: rgba(#000,0.75);
+  transition: all 0.15s;
+}
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_status_clear_filter</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sauvignon-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="filter-2-+-clear-+-filter" sketch:type="MSLayerGroup" transform="translate(-581.000000, -84.000000)" fill="#2B2B2B">
+            <g id="clear" transform="translate(581.000000, 84.000000)" sketch:type="MSShapeGroup">
+                <path d="M8.35531915,0.723404255 C4.14691489,0.723404255 0.723404255,4.14510638 0.723404255,8.35170213 C0.723404255,12.5619149 4.14691489,15.983617 8.35531915,15.983617 C12.5637234,15.983617 15.9868723,12.5619149 15.9868723,8.35170213 C15.9868723,4.14510638 12.5637234,0.723404255 8.35531915,0.723404255 L8.35531915,0.723404255 Z M8.35531915,16.7070213 C3.74831915,16.7070213 0,12.9597872 0,8.35170213 C0,3.74723404 3.74831915,0 8.35531915,0 C12.9623191,0 16.7102766,3.74723404 16.7102766,8.35170213 C16.7102766,12.9597872 12.9623191,16.7070213 8.35531915,16.7070213 L8.35531915,16.7070213 Z" id="Fill-209"></path>
+                <path d="M10.2383404,10.4929787 L6.14893617,6.40574468 L6.40465957,6.14893617 L10.4940638,10.2361702 L10.2383404,10.4929787" id="Fill-210"></path>
+                <path d="M6.40465957,10.4929787 L6.14893617,10.2361702 L10.2383404,6.14893617 L10.4940638,6.40574468 L6.40465957,10.4929787" id="Fill-211"></path>
+            </g>
+        </g>
+    </g>
+</svg>

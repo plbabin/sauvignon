@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="35px" height="32px" viewBox="0 0 35 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="17px" height="16px" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
-    <title>ico_rating_start_empty@2x</title>
+    <title>ico_rating_start_empty</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Sauvignon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Product-Page" sketch:type="MSArtboardGroup" transform="translate(-76.000000, -366.000000)" fill="#C390FF">
-            <g id="product-card" sketch:type="MSLayerGroup">
-                <g id="content" transform="translate(22.000000, 272.000000)" sketch:type="MSShapeGroup">
-                    <path d="M89.1794872,106.238462 L75.7201923,106.238462 L71.5897436,94 L67.4592949,106.238462 L54,106.238462 L65.0092949,113.769231 L60.7217949,126.007692 L71.5897436,118.423077 L82.4576923,126.007692 L78.1623397,113.769231 L89.1794872,106.238462 L89.1794872,106.238462 Z M79.9605769,122.715385 L71.5897436,116.869231 L63.2189103,122.715385 L66.5641026,113.292308 L58.0833333,107.546154 L68.3701923,107.546154 L71.5897436,98.0615385 L74.8092949,107.546154 L85.0961538,107.546154 L76.6153846,113.284615 L79.9605769,122.715385 L79.9605769,122.715385 Z" id="Shape-2"></path>
-                </g>
+    <g id="Sauvignon-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup" transform="translate(-45.000000, 0.000000)" fill="#C390FF">
+            <g id="Shape-2-Copy-+-ico_rating_start_empty-copy" transform="translate(45.000000, 0.000000)" sketch:type="MSShapeGroup">
+                <path d="M17.0871795,5.9443956 L10.5498077,5.9443956 L8.54358974,0 L6.53737179,5.9443956 L0,5.9443956 L5.34737179,9.6021978 L3.26487179,15.5465934 L8.54358974,11.8626374 L13.8223077,15.5465934 L11.7359936,9.6021978 L17.0871795,5.9443956 L17.0871795,5.9443956 Z M12.6094231,13.9474725 L8.54358974,11.1079121 L4.47775641,13.9474725 L6.1025641,9.37054945 L1.98333333,6.57956044 L6.97980769,6.57956044 L8.54358974,1.97274725 L10.1073718,6.57956044 L15.1038462,6.57956044 L10.9846154,9.36681319 L12.6094231,13.9474725 L12.6094231,13.9474725 Z" id="Shape-2-Copy"></path>
             </g>
         </g>
     </g>

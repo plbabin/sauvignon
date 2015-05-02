@@ -5,3 +5,5 @@ app/bundles
 *.log
 
 .sass-cache/
+
+*.sulbime-*
