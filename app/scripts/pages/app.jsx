@@ -1,9 +1,10 @@
 import React from 'react';
-import { RouteHandler } from 'react-router';
 import Header from '../components/header.jsx';
 import Navigation from '../components/navigation.jsx';
 import AddScreenSelector from '../components/add_screen_selector.jsx';
-import { Link } from 'react-router';
+import { Route, RouteHandler, Link } from 'react-router';
+
+var TransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 
 class App extends React.Component {
   
@@ -19,20 +20,34 @@ class App extends React.Component {
     console.log('toggleModal');
     this.setState({isAddScreenActive:!this.state.isAddScreenActive})
   }
+  getCurrentTransition(){
+    var name = this.context.router.getCurrentPath();
+    if(name == 'product-add'){
+      alert('here');
+    }
+
+    return 'page-transition__toggle';
+  }
 
   render() {
+    var name = this.context.router.getCurrentPath();
+
     return (
       <div className="app">
         <Header />
-        <div className="app__content content">
-          <RouteHandler/>
-        </div>
+        <TransitionGroup component="div" className="app__content content page-transition" transitionName={this.getCurrentTransition()}>
+          <RouteHandler key={name} {...this.props} />
+        </TransitionGroup>
         <Navigation isAddScreenActive={this.state.isAddScreenActive} addScreenOnClick={this.toggleAddScreen.bind(this)} />
         <AddScreenSelector isActive={this.state.isAddScreenActive} toggleModal={this.toggleAddScreen.bind(this)} />
       </div>
     );
   }
   
+}
+
+App.contextTypes = {
+  router: React.PropTypes.func
 }
 
 React.initializeTouchEvents(true);
