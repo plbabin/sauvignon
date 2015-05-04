@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import classnames from '../../bower_components/classnames/index.js';
-import ButtonAddProduct from '../components/button_add_product.jsx';
-import ButtonAddProductType from '../components/button_add_product_type.jsx';
+import classnames from 'classnames';
+import ButtonAddProduct from '../components/buttons/add_product.jsx';
+import ButtonAddProductType from '../components/buttons/add_product_type.jsx';
 
 class AddScreenSelector extends React.Component{
   constructor(props, context) {

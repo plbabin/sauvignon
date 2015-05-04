@@ -1,8 +1,15 @@
+var bower_dir = __dirname + '/app/bower_components';
+
 module.exports.getConfig = function(type) {
 
   var isDev = type === 'development';
 
   var config = {
+    addVendor: function (name, path) {
+      this.resolve.alias[name] = path;
+      this.module.noParse.push(new RegExp(path));
+    },
+    resolve: { alias: {} },
     entry: './app/scripts/main.js',
     output: {
       path: __dirname,
@@ -10,6 +17,7 @@ module.exports.getConfig = function(type) {
     },
     debug : isDev,
     module: {
+      noParse: [],
       loaders: [{
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -17,6 +25,8 @@ module.exports.getConfig = function(type) {
       }]
     }
   };
+
+  // config.addVendor('react', bower_dir + '/react/react.min.js');
 
   if(isDev){
     config.devtool = 'eval';

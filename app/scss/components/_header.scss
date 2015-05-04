@@ -2,4 +2,27 @@
   height:$header-height;
   background:$header-bg;
   color:$header-color;
+  display:flex;
+
+  &__title{
+    flex:1;
+    line-height:$header-height;
+    margin:0;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    font-size:1.3rem;
+    font-weight:500;
+  }
+
+  &__button{
+    flex:1;
+    max-width:$header-height;
+    display:flex;
+
+    .btn{
+      flex:1;
+    }
+  }
 }

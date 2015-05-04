@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import NavigationElement from '../components/navigation_element.jsx';
-import ButtonAddProduct from '../components/button_add_product.jsx';
-import classnames from '../../bower_components/classnames/index.js';
+import ButtonAddProduct from './buttons/add_product.jsx';
+import classnames from 'classnames';
 
 class Navigation extends React.Component{
 

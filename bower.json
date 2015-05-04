@@ -17,7 +17,6 @@
   ],
   "dependencies": {
     "flexboxgrid": "~6.1.1",
-    "normalize.css": "~3.0.3",
-    "classnames": "JedWatson/classnames#~1.2.2"
+    "normalize.css": "~3.0.3"
   }
 }

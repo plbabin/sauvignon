@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import classnames from '../../bower_components/classnames/index.js';
+import classnames from 'classnames';
 
 class NavigationElement extends React.Component{
   constructor(props, context) {
@@ -8,11 +8,12 @@ class NavigationElement extends React.Component{
   }
 
   getIconClassName() {
-    return classnames('icons', 'ico_nav_'+this.props.icon);
+    return classnames('icon', 'ico_nav_'+this.props.icon);
   }
 
   getAnchorClassName() {
     return classnames(
+      'icon--centered',
       "text-hide"
     );
   }

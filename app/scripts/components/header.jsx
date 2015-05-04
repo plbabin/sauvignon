@@ -1,30 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router';
+import ReactMixin from 'react-mixin';
+import Reflux from 'reflux';
+import HeaderActions from '../actions/headerActions';
 
 class Header extends React.Component{
 
   constructor(props, context) {
-   super(props);
+    super(props);
+    this.state = {title: '', leftButton:'', rightButton:''};
+  }
+
+  componentDidMount() {
+    this.listenTo(HeaderActions.setTitle, this.onSetTitle);
+    this.listenTo(HeaderActions.setLeftButton, this.onSetLeftButton);
+    this.listenTo(HeaderActions.setRightButton, this.onSetRightButton);
+  }
+
+  onSetTitle(title){
+    this.setState({title: title});
+  }
+
+  onSetLeftButton(leftButton){
+    this.setState({leftButton:leftButton});
+  }
+  onSetRightButton(rightButton){
+    this.setState({rightButton:rightButton});
   }
 
   render() {
     return (
       <header className="clearfix app__header header">
-        Application Name
-
-        <nav className="clearfix">
-          <div className="nav-item">
-            <Link to="home">Home</Link>
-          </div>
-          <div className="nav-item">
-            <Link to="info">Info</Link>
-          </div>
-        </nav>
+        <div className="header__button">
+          {this.state.leftButton}
+        </div>
+        <h2 className="header__title">{this.state.title}</h2> 
+        <div className="header__button">
+          {this.state.rightButton}
+        </div> 
       </header>
     );
   }
 
 }
+
+ReactMixin.onClass(Header, Reflux.ListenerMixin);
 
 Header.contextTypes = {
   router: React.PropTypes.func.isRequired
