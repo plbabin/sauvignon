@@ -3,7 +3,7 @@
   
   &__toggle-leave,
   &__toggle-enter{
-    transition: all .5s ease-in;
+    transition: opacity .5s ease-in;
   }
 
   &__toggle-enter{
