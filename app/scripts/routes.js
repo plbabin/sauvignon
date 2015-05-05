@@ -4,10 +4,10 @@ import { Route, DefaultRoute, NotFoundRoute } from 'react-router';
 import App from './pages/app.jsx';
 import Home from './pages/home.jsx';
 import Info from './pages/info.jsx';
-import ProductListLoved from './pages/product_list_loved.jsx';
-import ProductListTotry from './pages/product_list_totry.jsx';
-import ProductList from './pages/product_list.jsx';
-import Product from './pages/product.jsx';
+import ProductListLovedPage from './pages/product_list_loved_page.jsx';
+import ProductListTotryPage from './pages/product_list_totry_page.jsx';
+import ProductListPage from './pages/product_list_page.jsx';
+import ProductPage from './pages/product_page.jsx';
 import NotFound from './pages/notFound.jsx';
 
 var routes = (
@@ -16,11 +16,11 @@ var routes = (
     <Route name="info" handler={ Info } />
 
     <Route path="products">
-      <Route name="loved" path="loved" handler={ProductListLoved}>
-        <Route path=":productId" handler={Product} />
+      <Route name="loved" path="loved" handler={ProductListLovedPage}>
+        <Route path=":productId" handler={ProductPage} />
       </Route>
-      <Route name="totry" path="totry" handler={ProductListTotry}>
-        <Route path=":productId" handler={Product} />
+      <Route name="totry" path="totry" handler={ProductListTotryPage}>
+        <Route path=":productId" handler={ProductPage} />
       </Route>
     </Route>
 

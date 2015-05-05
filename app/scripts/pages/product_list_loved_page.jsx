@@ -1,9 +1,9 @@
-import ProductList from './product_list.jsx';
+import ProductListPage from './product_list_page.jsx';
 import React from 'react';
 import HeaderActions from '../actions/headerActions';
 import ButtonFilter from '../components/buttons/filter.jsx';
 
-class ProductListLoved extends ProductList {
+class ProductListLovedPage extends ProductListPage {
 
   constructor(props, context){
     super(props);
@@ -12,6 +12,6 @@ class ProductListLoved extends ProductList {
 
 }
 
-ProductListLoved.defaultProps = { type: 'love' };
+ProductListLovedPage.defaultProps = { type: 'love' };
 
-export default ProductListLoved;
+export default ProductListLovedPage;
