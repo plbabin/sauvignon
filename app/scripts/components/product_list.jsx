@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductCell from './cells/product_cell.jsx';
 
 class ProductList extends React.Component {
   
@@ -7,7 +8,7 @@ class ProductList extends React.Component {
   }
 
   render() {
-    var products = this.props.products.map(product => <li key={ product }>{ product }</li>),
+    var products = this.props.products.map(product => <ProductCell key={product} {...product} />),
       loading = this.props.loading ? <div className="loading-label">Loading...</div> : '';
 
     return (

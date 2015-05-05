@@ -2,22 +2,18 @@ import Reflux from 'reflux';
 import ProductActions from '../actions/product_actions';
 
 var ProductStore = Reflux.createStore({
-
+  listenables: [ProductActions],
   init() {
     this.products = [];
-
-    this.listenTo(ProductActions.loadProducts, this.loadProducts);
-    this.listenTo(ProductActions.loadProductsSuccess, this.loadProductsSuccess);
-    this.listenTo(ProductActions.loadProductsError, this.loadProductsError);
   },
 
-  loadProducts() {
+  onLoadProducts() {
     this.trigger({ 
       loading: true
     });
   },
 
-  loadProductsSuccess(products) {
+  onLoadProductsSuccess(products) {
     this.products = products;
 
     this.trigger({ 
@@ -26,7 +22,7 @@ var ProductStore = Reflux.createStore({
     });
   },
 
-  loadProductsError(error) {
+  onLoadProductsError(error) {
     this.trigger({ 
       error : error,
       loading: false
