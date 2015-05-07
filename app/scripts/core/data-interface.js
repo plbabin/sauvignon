@@ -76,4 +76,4 @@ class DataInterface {
   };
 }
 
-export default DataInterface;
+export default new DataInterface();

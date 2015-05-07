@@ -22,16 +22,37 @@ var ProductListStore = Reflux.createStore({
   },
 
   initFromStorage: function(){
-    var loadedList = Persistence.read(localStorageKey);
-    if (!loadedList) {
+    this.lists = Persistence.read(localStorageKey);
+    if (!this.lists) {
         // If no list is in localstorage, start out with a default one
         this.lists = {
           'love':[],
           'totry':[]
         };
-    } else {
-      this.lists = JSON.parse(loadedList);
     }
+  },
+
+  addProduct: function(product, rating = null, note = null){
+    if( _.isNumber(product) ){
+      product = new ProductModel(product);
+    }
+
+    if(product.loaded()){
+      var in_other_list   = _.find(this.lists[this._getOtherListType()], {product_id:product.id});
+      if(in_other_list){
+        ProductListActions.moveProduct(product, this.type, this._getOtherListType());
+      }else{
+        var in_current_list = _.find(this.lists[this.type], {product_id:product.id});
+        if(!in_current_list){
+          this.lists[this.type].push({product_id: product.id, rating:rating, note: note});
+        }
+      }
+    }
+    this._save();
+  },
+
+  moveProduct: function(product, from_list, to_list){
+    console.log("move");
   },
 
   setType: function(type){
@@ -65,8 +86,13 @@ var ProductListStore = Reflux.createStore({
     this._doGroupsAndSorting();
     this._trigger();
   },
+
+  _save: function(){
+    Persistence.write(localStorageKey, this.lists);
+  },
   
   _doGroupsAndSorting: function(){
+    console.log('groups creating', this.products_list);
     // if(this.type !== null){
     //   var products_list = products_list.filter(p => p.type === this.type);
     // }
@@ -84,15 +110,22 @@ var ProductListStore = Reflux.createStore({
   },
 
   _extractProductsFromList:function(){
-    var list = _.map(this.lists[this.type], function(o){
-      var p = new ProductModel(o.id);
+    var list = _.map(this.lists[this.type], (o)=>{
+      let p = new ProductModel(o.id);
 
       // we shoud do filtering here, base on filter criteria
-
       return this._doFiltering(p);
     });
+    
+    return _.filter(list, (o)=> o !== false);
+  },
 
-    return list;
+  _getOtherListType: function(){
+    if(this.type == 'love'){
+      return 'totry';
+    }else{
+      return 'love';
+    }
   },
 
   _trigger: function(){
