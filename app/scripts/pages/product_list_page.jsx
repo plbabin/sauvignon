@@ -26,7 +26,7 @@ class ProductListPage extends React.Component {
 
   componentDidMount() {
     this.unsubscribe = ProductListStore.listen(this.onStatusChange.bind(this));
-    ProductListActions.getProducts();
+    ProductListActions.updateList();
   }
 
   componentWillUnmount() {

@@ -40,9 +40,41 @@ var ProductListStore = Reflux.createStore({
     this.type = type;
   },
 
-  getProducts: function(){
-    var lists = this._createGroups();
+  // if list is pass as params, it mean we want to display a list that is not from LocalStorage
+  updateList: function(products = null){
+    var products_list = products || this.products;
+    var lists = this._createGroups(products_list);
     this._trigger();
+  },
+
+  setSortBy: function(type, direction){
+    this.sortOptions = {
+      type: type, 
+      direction: direction
+    };
+
+    this._trigger();
+  },
+  
+  _createGroups: function(products_list){
+    // if(this.type !== null){
+    //   var products_list = products_list.filter(p => p.type === this.type);
+    // }
+
+    // 1-filter product by current type
+    // 2-create group based on current sort option
+    // 3-reorder in each group
+
+
+    // this.products.forEach()
+  },
+
+  _trigger: function(){
+    this.trigger({
+        products: this.products,
+        sortOptions: this.sortOptions,
+        type: this.type
+    })
   },
 
   // this will be called by all listening components as they register their listeners
@@ -54,18 +86,7 @@ var ProductListStore = Reflux.createStore({
       sortOptions: this.sortOptions,
       type: this.type
     }
-  },
-  _createGroups: function(){
-    // this.products.forEach()
-  },
-  _trigger: function(){
-    this.trigger({
-        products: this.products,
-        sortOptions: this.sortOptions,
-        type: this.type
-    })
   }
-
 });
 
 export default ProductListStore;

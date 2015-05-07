@@ -7,11 +7,11 @@ var ProductListActions = Reflux.createActions([
   'moveProduct',
   'updateProduct',
   'getProducts',
+  'updateList',
 
   // lists  
   'setType',
-  'setSortBy',
-  'clearSortBy'
+  'setSortBy'
 ]);
 
 export default ProductListActions;
