@@ -90,9 +90,14 @@ gulp.task('serve', function() {
 
 // copy images
 gulp.task('images', function(cb) {
-  return gulp.src([app + 'images/**/*.{png,jpg,jpeg,gif}', '!'+app + 'images/favicons/'])
+  return gulp.src([app + 'images/**/*.{png,jpg,jpeg,gif}'])
     .pipe($.size({ title : 'images' }))
     .pipe(gulp.dest(dist + 'images/'));
+});
+
+gulp.task('favicons', function(cb) {
+  return gulp.src([app + '/favicons/**/*'])
+    .pipe(gulp.dest(dist));
 });
 
 // watch styl, html and js file changes
@@ -121,5 +126,5 @@ gulp.task('default', ['build', 'serve', 'watch']);
 
 // waits until clean is finished then builds the project
 gulp.task('build', ['clean'], function(){
-  gulp.start(['images', 'html','scripts','styles']);
+  gulp.start(['images', 'html','scripts','styles', 'favicons']);
 });

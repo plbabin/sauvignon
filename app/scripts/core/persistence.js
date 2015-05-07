@@ -15,7 +15,13 @@ var Persistence = {
         if (typeof localStorage === 'object') {
             return JSON.parse(localStorage.getItem(key));
         }
+    },
+    delete: function (key) {
+        if (typeof localStorage === 'object') {
+            localStorage.removeItem(key);
+        }
     }
+
 };
 
 export default Persistence;
