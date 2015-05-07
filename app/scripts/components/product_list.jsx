@@ -25,7 +25,7 @@ class ProductList extends React.Component {
 
 ProductList.propTypes = {
   loading : React.PropTypes.bool,
-  products : React.PropTypes.object
+  products : React.PropTypes.array
 };
 
 export default ProductList;
