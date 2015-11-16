@@ -8,7 +8,7 @@ class ProductList extends React.Component {
   }
 
   render() {
-    var products = this.props.products.map(product => <ProductCell key={product} {...product} />),
+    var products = this.props.tableData.map(product => <ProductCell key={product.id} {...product} />),
       loading = this.props.loading ? <div className="loading-label">Loading...</div> : '';
 
     return (
@@ -25,7 +25,7 @@ class ProductList extends React.Component {
 
 ProductList.propTypes = {
   loading : React.PropTypes.bool,
-  products : React.PropTypes.array
+  tableData : React.PropTypes.array
 };
 
 export default ProductList;

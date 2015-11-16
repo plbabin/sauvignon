@@ -3,6 +3,7 @@ import ProductListActions from '../actions/product_list_actions';
 import Persistence from '../core/persistence.js';
 import _ from 'lodash'; 
 import ProductModel from '../models/product_model.js';
+import SortMixin from '../mixins/sort_mixin.js';
 
 // some variables and helpers for our fake database stuff
 var productCounter = 0,
@@ -10,6 +11,8 @@ var productCounter = 0,
 
 var ProductListStore = Reflux.createStore({
   listenables: [ProductListActions],
+  sortType:['type', 'price', 'name'],
+  mixins:[SortMixin],
   init: function() {
     // var r = new ProductInfo({id:1, desc:'test', rating: 4});
     this.type = null;
@@ -19,17 +22,23 @@ var ProductListStore = Reflux.createStore({
       rating:4,
       note:'dsfkhjgdfjhgf'
     };
+
+    this._filtered_products = [];
+    this._filtered_groups   = [];
   },
 
   initFromStorage: function(){
-    this.lists = Persistence.read(localStorageKey);
-    if (!this.lists) {
+    // load lists from storage
+    this._lists = Persistence.read(localStorageKey);
+    if (!this._lists) {
         // If no list is in localstorage, start out with a default one
-        this.lists = {
+        this._lists = {
           'love':[],
           'totry':[]
         };
     }
+
+    // @todo: load sort order from storage
   },
 
   addProduct: function(product, rating = null, note = null){
@@ -38,13 +47,13 @@ var ProductListStore = Reflux.createStore({
     }
 
     if(product.loaded()){
-      var in_other_list   = _.find(this.lists[this._getOtherListType()], {product_id:product.id});
+      var in_other_list   = _.find(this._lists[this._getOtherListType()], {product_id:product.id});
       if(in_other_list){
         ProductListActions.moveProduct(product, this.type, this._getOtherListType());
       }else{
-        var in_current_list = _.find(this.lists[this.type], {product_id:product.id});
+        var in_current_list = _.find(this._lists[this.type], {product_id:product.id});
         if(!in_current_list){
-          this.lists[this.type].push({product_id: product.id, rating:rating, note: note});
+          this._lists[this.type].push({product_id: product.id, rating:rating, note: note});
         }
       }
     }
@@ -61,56 +70,27 @@ var ProductListStore = Reflux.createStore({
 
   // if list is pass as params, it mean we want to display a list that is not from LocalStorage
   updateList: function(products = null){
-    this.products_list = products || this._extractProductsFromList();
+    this.setDataList(products || this._extractProductsFromList());
 
-    this._doGroupsAndSorting();
+    this.sortList();
 
     this._trigger();
   },
 
   setFilterBy: function(){
-    // this.products_list = this._extractProductsFromList();
-  },
-
-  setSortBy: function(type, direction){
-    this.sortOptions = {
-      type: type, 
-      direction: direction
-    };
-
-    if(!this.products_list){
-      return this.updateList();
-    }
-
-    // do sorting again
-    this._doGroupsAndSorting();
-    this._trigger();
+    // this._data_list = this._extractProductsFromList();
   },
 
   _save: function(){
-    Persistence.write(localStorageKey, this.lists);
+    Persistence.write(localStorageKey, this._lists);
   },
   
-  _doGroupsAndSorting: function(){
-    console.log('groups creating', this.products_list);
-    // if(this.type !== null){
-    //   var products_list = products_list.filter(p => p.type === this.type);
-    // }
-
-    // 1-filter product by current type
-    // 2-create group based on current sort option
-    // 3-reorder in each group
-
-
-    // this.products.forEach()
-  },
-
   _doFiltering: function(p){
     return p;
   },
 
   _extractProductsFromList:function(){
-    var list = _.map(this.lists[this.type], (o)=>{
+    var list = _.map(this._lists[this.type], (o)=>{
       let p = new ProductModel(o.id);
 
       // we shoud do filtering here, base on filter criteria
@@ -130,10 +110,17 @@ var ProductListStore = Reflux.createStore({
 
   _trigger: function(){
     this.trigger({
-        products: [],
-        sortOptions: this.sortOptions,
+        tableData: this._getFilteredAndSortedProductsList(),
+        sortOptions: this.getSortOptions(),
         type: this.type
     })
+  },
+
+  _getFilteredAndSortedProductsList: function(){
+    if(!_.isEmpty(this._filtered_groups)){
+      return this._filtered_groups;
+    }
+    return this._filtered_products;
   },
 
   // this will be called by all listening components as they register their listeners
@@ -141,8 +128,8 @@ var ProductListStore = Reflux.createStore({
     this.initFromStorage();
 
     return {
-      products: [],
-      sortOptions: this.sortOptions,
+      tableData: this._getFilteredAndSortedProductsList(),
+      sortOptions: this.getSortOptions(),
       type: this.type
     }
   }

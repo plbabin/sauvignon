@@ -9,7 +9,14 @@ module.exports.getConfig = function(type) {
       this.resolve.alias[name] = path;
       this.module.noParse.push(new RegExp(path));
     },
-    resolve: { alias: {} },
+    resolve: { 
+      alias: {},
+      // you can now require('myfile') instead of require('myfile.cjsx')
+      extensions: ['', '.js', '.jsx', '.cjsx', '.coffee']
+    },
+    resolveLoader: {
+      modulesDirectories: ['node_modules']
+    },
     entry: './app/scripts/main.js',
     output: {
       path: __dirname,
