@@ -1,9 +1,9 @@
-import ProductList from './product_list.jsx';
+import ProductListPage from './product_list_page.jsx';
 import React from 'react';
 import HeaderActions from '../actions/headerActions';
 import ButtonFilter from '../components/buttons/filter.jsx';
 
-class ProductListTotry extends ProductList {
+class ProductListTotryPage extends ProductListPage {
 
   constructor(props, context){
     super(props);
@@ -12,6 +12,6 @@ class ProductListTotry extends ProductList {
 
 }
 
-ProductListTotry.defaultProps = { type: 'totry' };
+ProductListTotryPage.defaultProps = { type: 'totry' };
 
-export default ProductListTotry;
+export default ProductListTotryPage;
