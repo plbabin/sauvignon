@@ -15,7 +15,7 @@ var ProductActions = Reflux.createActions([
 
 
 ProductActions.add.preEmit = function(product_id){
-  dataInterface.get("/products/"+product_id)
+  dataInterface.get('/products/' + product_id)
   .then(function(data) {
     var p = new ProductModel(data); 
     ProductActions.addSuccess(p.id, p);

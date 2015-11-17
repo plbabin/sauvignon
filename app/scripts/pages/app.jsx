@@ -22,7 +22,7 @@ class App extends React.Component {
   }
   getCurrentTransition(){
     var name = this.context.router.getCurrentPath();
-    if(name == 'product-add'){
+    if (name === 'product-add'){
       alert('here');
     }
 

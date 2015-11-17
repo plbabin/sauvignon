@@ -1,32 +1,32 @@
-import reflux from "reflux";
-import dataInterface from "../core/data-interface.js";
+import reflux from 'reflux';
+import dataInterface from '../core/data-interface.js';
 
 // Create actions
 var RestActions = reflux.createActions([
   // Get
-  "loadResource",
-  "loadResourceSuccess",
-  "loadResourceFail",
+  'loadResource',
+  'loadResourceSuccess',
+  'loadResourceFail',
 
   // Create
-  "createResource",
-  "createResourceSuccess",
-  "createResourceFail",
+  'createResource',
+  'createResourceSuccess',
+  'createResourceFail',
 
   // Update
-  "updateResource",
-  "updateResourceSuccess",
-  "updateResourceFail",
+  'updateResource',
+  'updateResourceSuccess',
+  'updateResourceFail',
 
   // Remove
 
   // Error
-  "resourceNotFound"
+  'resourceNotFound'
 ]);
 
 // Action handlers
 RestActions.loadResource.listen(function(type, id, childrenType) {
-  dataInterface.get([type, id, childrenType].filter(function(e){ return e; }).join("/"))
+  dataInterface.get([type, id, childrenType].filter(function(e){ return e; }).join('/'))
     .then(function(data) {
       RestActions.loadResourceSuccess(type, id, childrenType, data);
     })
@@ -36,7 +36,7 @@ RestActions.loadResource.listen(function(type, id, childrenType) {
 });
 
 RestActions.createResource.listen(function(type, data, navigateTo) {
-  dataInterface.post([type].filter(function(e){ return e; }).join("/"), data)
+  dataInterface.post([type].filter(function(e){ return e; }).join('/'), data)
     .then(function(resultData) {
       RestActions.createResourceSuccess(type, resultData);
 

@@ -6,15 +6,15 @@ import _ from 'lodash';
 
 // some variables and helpers for our fake database stuff
 var productCounter = 0,
-    localStorageKey = "products";
+    localStorageKey = 'products';
 
 var ProductStore = Reflux.createStore({
   // mixins: [restStoreMixin],
   listenables: [ProductActions, RestActions],
-  storeName: "ProductStore",
+  storeName: 'ProductStore',
   data: {},
   resourceDef: {
-    type: "product",
+    type: 'product',
     id: true,
     childrenType: null
   },
@@ -23,7 +23,7 @@ var ProductStore = Reflux.createStore({
     this.type     = 'love';
 
     this.sortOptions = {
-      name: "type",
+      name: 'type',
       dir: 'asc'
     };
   },

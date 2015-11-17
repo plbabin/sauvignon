@@ -8,12 +8,12 @@ class ProductModel {
     this.rating = null;
     this._loaded = false;
 
-    if(data){
-      if( _.isNumber(data) ){
+    if (data){
+      if ( _.isNumber(data) ){
         this.initFromStorage(data);
-      }else if(_.isObject(data)){
+      }else if (_.isObject(data)){
         this.initFromData(data); 
-      }else{
+      }else {
         throw new Exception('data is not valid');
       }
     }
@@ -32,7 +32,7 @@ class ProductModel {
   initFromStorage(id){
     var products = Persistence.read(localStorageKey);
 
-    if(products[id]){
+    if (products[id])  {
       _.assign(this, products[id]);
       this._loaded = true;
     }

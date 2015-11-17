@@ -14,7 +14,7 @@ class NavigationElement extends React.Component{
   getAnchorClassName() {
     return classnames(
       'icon--centered',
-      "text-hide"
+      'text-hide'
     );
   }
 

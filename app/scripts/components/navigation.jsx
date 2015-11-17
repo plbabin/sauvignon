@@ -12,8 +12,8 @@ class Navigation extends React.Component{
 
   getListClassName(icon) {
     return classnames(
-      "nav__element", 
-      "nav__element--"+icon
+      'nav__element', 
+      'nav__element--' + icon
     );
   }
 

@@ -7,7 +7,7 @@ import SortMixin from '../mixins/sort_mixin.js';
 
 // some variables and helpers for our fake database stuff
 var productCounter = 0,
-    localStorageKey = "products_lists";
+    localStorageKey = 'products_lists';
 
 var ProductListStore = Reflux.createStore({
   listenables: [ProductListActions],
@@ -42,17 +42,17 @@ var ProductListStore = Reflux.createStore({
   },
 
   addProduct: function(product, rating = null, note = null){
-    if( _.isNumber(product) ){
+    if ( _.isNumber(product) ){
       product = new ProductModel(product);
     }
 
-    if(product.loaded()){
+    if (product.loaded()){
       var in_other_list   = _.find(this._lists[this._getOtherListType()], {product_id:product.id});
-      if(in_other_list){
+      if (in_other_list){
         ProductListActions.moveProduct(product, this.type, this._getOtherListType());
-      }else{
+      } else {
         var in_current_list = _.find(this._lists[this.type], {product_id:product.id});
-        if(!in_current_list){
+        if (!in_current_list){
           this._lists[this.type].push({product_id: product.id, rating:rating, note: note});
         }
       }
@@ -61,7 +61,7 @@ var ProductListStore = Reflux.createStore({
   },
 
   moveProduct: function(product, from_list, to_list){
-    console.log("move");
+    console.log('move');
   },
 
   setType: function(type){
@@ -101,7 +101,7 @@ var ProductListStore = Reflux.createStore({
   },
 
   _getOtherListType: function(){
-    if(this.type == 'love'){
+    if(this.type === 'love'){
       return 'totry';
     }else{
       return 'love';

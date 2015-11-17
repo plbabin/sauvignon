@@ -3,10 +3,10 @@ import _ from 'lodash';
 var SortMixin = {
   sortDirection:['ASC', 'DESC'],
   setSortBy: function(type, direction){
-    if(!_.inArray(this.sortType, type)){
+    if (!_.inArray(this.sortType, type)){
       type = _.first(this.sortType);
     }
-    if(!_.inArray(this.sortDirection, direction)){
+    if (!_.inArray(this.sortDirection, direction)){
       direction = _.first(this.sortDirection);
     }
 
@@ -15,7 +15,7 @@ var SortMixin = {
       direction: direction
     };
 
-    if(!this._data_list){
+    if (!this._data_list){
       return this.updateList();
     }
 
@@ -30,7 +30,7 @@ var SortMixin = {
     };
   },
   getSortOptions:function(){
-    if(!this._sortOptions){
+    if (!this._sortOptions){
       this.setDefaultSortOptions();
     }
 
@@ -52,7 +52,7 @@ var SortMixin = {
     // 3-reorder in each group
   },
   extractGroup: function(){
-    switch(this.getSortOptions().type){
+    switch (this.getSortOptions().type){
       case 'type':
         this._extractTypeFromDataList();
       case 'price':
