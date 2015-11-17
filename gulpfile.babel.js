@@ -35,7 +35,8 @@ const paths = {
   srcCss: 'app/scss/**/*.scss',
   srcImg: ['app/images/**', '!app/images/**/*.svg'],
   srcIcons: 'app/images/icons/**/*.svg',
-  srcFavicons: 'app/favicons/**',
+  srcImgFavicons: 'app/favicons/**/*.png',
+  srcFavicons: 'app/favicons/**/*',
   dist: 'dist',
   distJs: 'dist/js',
   distCss: 'dist/css',
@@ -92,7 +93,7 @@ gulp.task('server', () => {
   server.start();
 });
 
-gulp.task('watchify', ['lint'],() => {
+gulp.task('watchify', ['lint'],(cb) => {
   let bundler = watchify(browserify(paths.srcJsx, watchify.args));
 
   function rebundle() {
@@ -185,8 +186,13 @@ gulp.task('svg:sprite', ()=> {
 });
 
 gulp.task('favicons', function(cb) {
-  gulp.src(paths.srcFavicons)
+  gulp.src(paths.srcImgFavicons)
     .pipe(image())
+    .pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('other-fav-files', function(cb) {
+  gulp.src(['!'+paths.srcImgFavicons, paths.srcFavicons])
     .pipe(gulp.dest(paths.dist));
 });
 
@@ -196,7 +202,7 @@ gulp.task('watchTask', () => {
 });
 
 gulp.task('watch', cb => {
-  runSequence('clean', ['watchTask', 'watchify', 'svg:sprite', 'styles', 'html', 'images', 'favicons'], 'browserSync',  cb);
+  runSequence('clean', ['watchTask', 'watchify', 'styles', 'svg:sprite', 'html', 'images'], 'browserSync',  cb);
 });
 
 gulp.task('build', cb => {

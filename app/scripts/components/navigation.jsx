@@ -22,10 +22,10 @@ class Navigation extends React.Component{
       <nav className="app__nav nav">
         <ul className="nav__list">
           <li className={this.getListClassName('love')}>
-            <NavigationElement route="loved" icon="love">Loved</NavigationElement>
+            <NavigationElement route="products/loved" icon="love">Loved</NavigationElement>
           </li>
           <li className={this.getListClassName('totry')}>
-            <NavigationElement route="totry" icon="totry">To-Try</NavigationElement>
+            <NavigationElement route="products/totry" icon="totry">To-Try</NavigationElement>
           </li>
           <li className={this.getListClassName('add')}>
             <ButtonAddProduct onclick={this.props.addScreenOnClick} isActive={this.props.isAddScreenActive}>Add</ButtonAddProduct>
@@ -41,10 +41,6 @@ class Navigation extends React.Component{
     );
   }
 
-}
-
-Navigation.contextTypes = {
-  router: React.PropTypes.func.isRequired
 }
 
 export default Navigation;

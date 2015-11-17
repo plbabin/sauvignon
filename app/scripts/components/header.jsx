@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-// import ReactMixin from 'react-mixin';
-import Reflux from 'reflux';
 import HeaderActions from '../actions/headerActions';
 
 class Header extends React.Component{
@@ -12,9 +10,9 @@ class Header extends React.Component{
   }
 
   componentDidMount() {
-    this.listenTo(HeaderActions.setTitle, this.onSetTitle);
-    this.listenTo(HeaderActions.setLeftButton, this.onSetLeftButton);
-    this.listenTo(HeaderActions.setRightButton, this.onSetRightButton);
+    // this.listenTo(HeaderActions.setTitle, this.onSetTitle);
+    //this.listenTo(HeaderActions.setLeftButton, this.onSetLeftButton);
+    //this.listenTo(HeaderActions.setRightButton, this.onSetRightButton);
   }
 
   onSetTitle(title){
@@ -44,10 +42,5 @@ class Header extends React.Component{
 
 }
 
-// ReactMixin.onClass(Header, Reflux.ListenerMixin);
-
-Header.contextTypes = {
-  router: React.PropTypes.func.isRequired
-}
 
 export default Header;

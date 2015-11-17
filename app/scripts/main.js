@@ -1,8 +1,6 @@
-import React from 'react';
-import Router from 'react-router';
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route } from 'react-router';
 import routes from './routes';
 
-Router.run(routes, (Handler, state) => {
-  var params = state.params;
-  React.render(<Handler params={params} />, document.body);
-});
+render(routes, document.getElementById('content') );
