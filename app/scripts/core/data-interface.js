@@ -1,6 +1,5 @@
-import Q from "q";
-import dataProvider from "./sync-data-provider";
-import devSettings from "../helpers/dev-settings";
+import dataProvider from './sync-data-provider';
+import fetch from 'isomorphic-fetch';
 
 // TODO: Remove the following eslint directive once
 // https://github.com/babel/babel-eslint/issues/21#issuecomment-76796488 is resolved
@@ -17,11 +16,39 @@ class DataInterface {
     };
   }
 
+  getUrl(path, params){
+    var url = 'http://' + window.location.host + '/api' + path;
+    console.log(url);
+    if (params) {
+      var params_string = [];
+      Object.keys(params).forEach((key)=> {
+        let obj = params[key];
+        params_string.push(key+'='+obj);
+      });
+      url += '?'+params_string.join('&')
+    }
+    return url;
+  }
+
+  checkStatus(response) {
+    if (response.status >= 200 && response.status < 300) {
+      return response
+    } else {
+      var error = new Error(response.statusText)
+      error.response = response
+      throw error
+    }
+  }
+
+  parseJSON(response) {
+    return response.json()
+  }
+
   // Rest methods
-  get(path, localOnly) {
+  get(path, params, localOnly) {
     // Check for hydrated data
     var hydratedData = dataProvider.getDataByPath(path);
-    if(Object.getOwnPropertyNames(hydratedData).length !== 0 || localOnly){
+    if (Object.getOwnPropertyNames(hydratedData).length !== 0 || localOnly) {
       this.response = hydratedData;
 
       if (localOnly && !this.response) {
@@ -30,21 +57,23 @@ class DataInterface {
       return this;
     }
     else {
-      var $ = require("jquery");
-      var url = devSettings.url ? devSettings.url : "http://" + window.location.host;
       // Check if we need artificial server delay for testing
-      return Q.when($.get(url + path)).delay((devSettings.serverDelay) ? devSettings.serverDelayValue : 0).then(function(result) {
-        return result;
-      });
+      return fetch( this.getUrl(path, params))
+        .then(this.checkStatus)
+        .then(this.parseJSON);
     }
   }
 
   post(path, data) {
-    var $ = require("jquery");
-    var url = devSettings.url ? devSettings.url : "http://" + window.location.host;
-    return Q.when($.post(url + path, data)).then(function(result) {
-      return result;
-    });
+    return fetch( this.getUrl(path), {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then(this.checkStatus)
+        .then(this.parseJSON);
   }
 
   // Callbacks
@@ -57,7 +86,7 @@ class DataInterface {
 
   catch(callback) {
     if (this.error) {
-      callback(null, "", "");
+      callback(null, '', '');
     }
     return this;
   };

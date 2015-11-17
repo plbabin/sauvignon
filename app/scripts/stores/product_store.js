@@ -2,7 +2,7 @@ import Reflux from 'reflux';
 import ProductActions from '../actions/product_actions';
 import RestActions from '../actions/rest_actions.js';
 import _ from 'lodash'; 
-import Immutable from 'immutable';
+// import Immutable from 'immutable';
 
 // some variables and helpers for our fake database stuff
 var productCounter = 0,
@@ -12,7 +12,7 @@ var ProductStore = Reflux.createStore({
   // mixins: [restStoreMixin],
   listenables: [ProductActions, RestActions],
   storeName: "ProductStore",
-  data: Immutable.Map({}),
+  data: {},
   resourceDef: {
     type: "product",
     id: true,

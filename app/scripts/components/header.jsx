@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import ReactMixin from 'react-mixin';
+// import ReactMixin from 'react-mixin';
 import Reflux from 'reflux';
 import HeaderActions from '../actions/headerActions';
 
@@ -44,7 +44,7 @@ class Header extends React.Component{
 
 }
 
-ReactMixin.onClass(Header, Reflux.ListenerMixin);
+// ReactMixin.onClass(Header, Reflux.ListenerMixin);
 
 Header.contextTypes = {
   router: React.PropTypes.func.isRequired
