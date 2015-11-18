@@ -1,5 +1,5 @@
 import reflux from 'reflux';
-import dataInterface from '../core/data-interface.js';
+import dataInterface from '../lib/data-interface.js';
 
 // Create actions
 var RestActions = reflux.createActions([

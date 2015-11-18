@@ -2,39 +2,35 @@ import React from 'react';
 import { Link } from 'react-router';
 import HeaderActions from '../actions/headerActions';
 
+import { bindActionCreators } from 'redux';
+import { connect }            from 'react-redux';
+
 class Header extends React.Component{
 
   constructor(props, context) {
     super(props);
-    this.state = {title: '', leftButton:'', rightButton:''};
   }
 
   componentDidMount() {
-    // this.listenTo(HeaderActions.setTitle, this.onSetTitle);
-    //this.listenTo(HeaderActions.setLeftButton, this.onSetLeftButton);
-    //this.listenTo(HeaderActions.setRightButton, this.onSetRightButton);
-  }
-
-  onSetTitle(title){
-    this.setState({title: title});
-  }
-
-  onSetLeftButton(leftButton){
-    this.setState({leftButton:leftButton});
-  }
-  onSetRightButton(rightButton){
-    this.setState({rightButton:rightButton});
   }
 
   render() {
+    let leftButton = '';
+    if(this.props.header.get('leftButton')){
+      leftButton = this.props.header.get('leftButton');
+    }
+    let rightButton = '';
+    if(this.props.header.get('rightButton')){
+      rightButton = this.props.header.get('rightButton');
+    }
     return (
       <header className="clearfix app__header header">
         <div className="header__button">
-          {this.state.leftButton}
+          {leftButton}
         </div>
-        <h2 className="header__title">{this.state.title}</h2> 
+        <h2 className="header__title">{this.props.header.get('title')}</h2> 
         <div className="header__button">
-          {this.state.rightButton}
+          {rightButton}
         </div> 
       </header>
     );
@@ -42,5 +38,8 @@ class Header extends React.Component{
 
 }
 
-
-export default Header;
+export default connect(
+  state => ({
+    header: state.header
+  })
+)(Header)

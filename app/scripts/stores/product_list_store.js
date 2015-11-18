@@ -1,6 +1,6 @@
 import Reflux from 'reflux';
 import ProductListActions from '../actions/product_list_actions';
-import Persistence from '../core/persistence.js';
+import Persistence from '../lib/persistence.js';
 import _ from 'lodash'; 
 import ProductModel from '../models/product_model.js';
 import SortMixin from '../mixins/sort_mixin.js';

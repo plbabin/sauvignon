@@ -15,7 +15,7 @@ class ProductListPage extends React.Component {
 
   constructor(props){
     super(props);
-    HeaderActions.setRightButton(<ButtonFilter onclick={this.toggleFilterPanel.bind(this)}/>)
+    //HeaderActions.setRightButton(<ButtonFilter onclick={this.toggleFilterPanel.bind(this)}/>)
 
     ProductListActions.setType(this.props.type);
 

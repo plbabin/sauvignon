@@ -3,7 +3,7 @@ import Header from '../components/header.jsx';
 import Navigation from '../components/navigation.jsx';
 import AddScreenSelector from '../components/add_screen_selector.jsx';
 import { Route, RouteHandler, Link } from 'react-router';
-import RouteCSSTransitionGroup from '../core/RouteCSSTransitionGroup'
+import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
 
 class App extends React.Component {
   

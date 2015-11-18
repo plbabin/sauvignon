@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import Persistence from '../core/persistence.js';
+import Persistence from '../lib/persistence.js';
 
 var localStorageKey = 'products';
 class ProductModel {
