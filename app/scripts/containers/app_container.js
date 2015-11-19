@@ -1,15 +1,19 @@
 import React from 'react';
+import { Route, RouteHandler, Link } from 'react-router';
+
+import { connect }            from 'react-redux';
+
 import HeaderContainer from '../containers/header_container';
+
 import Navigation from '../components/navigation';
 import AddScreenSelector from '../components/add_screen_selector';
-import { Route, RouteHandler, Link } from 'react-router';
+
 import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
 
 class AppContainer extends React.Component {
   
   constructor(props, context){
     super(props, context);
-
     this.state = {isAddScreenActive: false};
   }
 
@@ -36,7 +40,7 @@ class AppContainer extends React.Component {
       <div className="app">
         <HeaderContainer />
         <RouteCSSTransitionGroup
-          component="div" className="app__content content page-transition" transitionName="page-transition__toggle"
+          component="div" className="app__content content page-transition" transitionName={this.getCurrentTransition()}
           transitionEnterTimeout={500} transitionLeaveTimeout={500}
         >
           {this.props.children}
@@ -54,4 +58,5 @@ AppContainer.contextTypes = {
   location: React.PropTypes.object.isRequired
 }
 
-export default AppContainer;
+
+export default AppContainer

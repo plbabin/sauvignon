@@ -26,6 +26,6 @@ export default (
     <Route path="stores" component={ InfoContainer } />
     <Route path="add" component={ InfoContainer } />
 
-    <IndexRoute component={HomeContainer} />
+    <IndexRoute name="home" component={HomeContainer} />
   </Route>
 );

@@ -7,7 +7,7 @@ import { reduxReactRouter,
          routerStateReducer, 
          ReduxRouter }      from 'redux-router';
 
-import { createHistory }    from 'history';
+import { createHashHistory }    from 'history';
 import routes               from './routes';
 
 import { Provider }         from 'react-redux';
@@ -34,7 +34,7 @@ const store = compose(
   applyMiddleware(promiseMiddleware, logger),
   reduxReactRouter({
     routes,
-    createHistory
+    createHistory: createHashHistory
   })
   //devTools()
 )(createStore)(reducer);
