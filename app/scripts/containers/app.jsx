@@ -5,7 +5,7 @@ import AddScreenSelector from '../components/add_screen_selector.jsx';
 import { Route, RouteHandler, Link } from 'react-router';
 import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
 
-class App extends React.Component {
+class AppContainer extends React.Component {
   
   constructor(props, context){
     super(props, context);
@@ -49,9 +49,9 @@ class App extends React.Component {
   
 }
 
-App.contextTypes = {
+AppContainer.contextTypes = {
   history: React.PropTypes.object.isRequired,
   location: React.PropTypes.object.isRequired
 }
 
-export default App;
+export default AppContainer;

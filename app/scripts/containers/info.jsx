@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Info extends React.Component {
+class InfoContainer extends React.Component {
 
   render() {
     return (
@@ -17,4 +17,4 @@ class Info extends React.Component {
 
 }
 
-export default Info;
+export default InfoContainer;

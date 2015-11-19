@@ -1,31 +1,31 @@
 import React from 'react';
 import { Router, Route, NotFoundRoute, IndexRoute } from 'react-router';
 
-import App from './pages/app.jsx';
-import Home from './pages/home.jsx';
-import Info from './pages/info.jsx';
-import ProductListLovedPage from './pages/product_list_loved_page.jsx';
-import ProductListTotryPage from './pages/product_list_totry_page.jsx';
-import ProductListPage from './pages/product_list_page.jsx';
-import ProductPage from './pages/product_page.jsx';
-// import NotFound from './pages/notFound.jsx';
+import AppContainer from './containers/app.jsx';
+import HomeContainer from './containers/home.jsx';
+import InfoContainer from './containers/info.jsx';
+import ProductListLovedContainer from './containers/product_list/loved.jsx';
+import ProductListTotryContainer from './containers/product_list/totry.jsx';
+import ProductListContainer from './containers/product_list.jsx';
+import ProductContainer from './containers/product.jsx';
+// import NotFound from './containers/notFound.jsx';
 
 export default (
-  <Route path="/" component={ App }>
+  <Route path="/" component={ AppContainer }>
 
     <Route path="products">
-      <Route path="loved" component={ProductListLovedPage}>
-        <Route path=":productId" component={ProductPage} />
+      <Route path="loved" component={ProductListLovedContainer}>
+        <Route path=":productId" component={ProductContainer} />
       </Route>
-      <Route path="totry" component={ProductListTotryPage}>
-        <Route path=":productId" component={ProductPage} />
+      <Route path="totry" component={ProductListTotryContainer}>
+        <Route path=":productId" component={ProductContainer} />
       </Route>
     </Route>
 
-    <Route path="settings" component={ Info } />
-    <Route path="stores" component={ Info } />
-    <Route path="add" component={ Info } />
+    <Route path="settings" component={ InfoContainer } />
+    <Route path="stores" component={ InfoContainer } />
+    <Route path="add" component={ InfoContainer } />
 
-    <IndexRoute component={Home} />
+    <IndexRoute component={HomeContainer} />
   </Route>
 );

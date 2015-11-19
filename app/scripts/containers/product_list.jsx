@@ -11,7 +11,7 @@ import ProductAction from '../actions/product_actions.js';
 
 import _ from 'lodash'
 
-class ProductListPage extends React.Component {
+class ProductListContainer extends React.Component {
 
   constructor(props){
     super(props);
@@ -62,4 +62,4 @@ class ProductListPage extends React.Component {
 
 }
 
-export default ProductListPage;
+export default ProductListContainer;

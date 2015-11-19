@@ -3,7 +3,7 @@ import React from 'react';
 // import ItemStore from '../stores/itemStore';
 // import ItemActions from '../actions/itemActions';
 
-class Home extends React.Component {
+class HomeContainer extends React.Component {
   
   constructor(props){
     super(props);
@@ -37,4 +37,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default HomeContainer;
