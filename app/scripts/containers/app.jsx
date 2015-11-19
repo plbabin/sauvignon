@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/header.jsx';
+import HeaderContainer from '../containers/header_container';
 import Navigation from '../components/navigation.jsx';
 import AddScreenSelector from '../components/add_screen_selector.jsx';
 import { Route, RouteHandler, Link } from 'react-router';
@@ -34,7 +34,7 @@ class AppContainer extends React.Component {
 
     return (
       <div className="app">
-        <Header />
+        <HeaderContainer />
         <RouteCSSTransitionGroup
           component="div" className="app__content content page-transition" transitionName="page-transition__toggle"
           transitionEnterTimeout={500} transitionLeaveTimeout={500}

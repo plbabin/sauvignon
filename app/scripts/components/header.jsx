@@ -1,9 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import HeaderActions from '../actions/headerActions';
-
-import { bindActionCreators } from 'redux';
-import { connect }            from 'react-redux';
 
 class Header extends React.Component{
 
@@ -11,24 +7,22 @@ class Header extends React.Component{
     super(props);
   }
 
-  componentDidMount() {
-  }
-
   render() {
     let leftButton = '';
-    if(this.props.header.get('leftButton')){
-      leftButton = this.props.header.get('leftButton');
+    if(this.props.leftButton){
+      leftButton = this.props.leftButton;
     }
     let rightButton = '';
-    if(this.props.header.get('rightButton')){
-      rightButton = this.props.header.get('rightButton');
+    if(this.props.rightButton){
+      rightButton = this.props.rightButton;
     }
+
     return (
       <header className="clearfix app__header header">
         <div className="header__button">
           {leftButton}
         </div>
-        <h2 className="header__title">{this.props.header.get('title')}</h2> 
+        <h2 className="header__title">{this.props.title}</h2> 
         <div className="header__button">
           {rightButton}
         </div> 
@@ -38,8 +32,4 @@ class Header extends React.Component{
 
 }
 
-export default connect(
-  state => ({
-    header: state.header
-  })
-)(Header)
+export default Header;

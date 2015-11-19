@@ -7,8 +7,8 @@ import { SET_HEADER_TITLE,
 
 const defaultState = new Immutable.Map({
   'title'       : 'default title',
-  'left_button' : false,
-  'right_button': false
+  'leftButton' : false,
+  'rightButton': false
 });
 
 export default function headerReducer(state = defaultState, action) {
