@@ -8,7 +8,8 @@ class ProductList extends React.Component {
   }
 
   render() {
-    var products = this.props.tableData.map(product => <ProductCell key={product.id} {...product} />),
+    let tableData = this.props.tableData || [];
+    var products = tableData.map(product => <ProductCell key={product.id} {...product} />),
       loading = this.props.loading ? <div className="loading-label">Loading...</div> : '';
 
     return (
