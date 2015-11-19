@@ -1,7 +1,7 @@
 import React from 'react';
-import ProductListContainer from '../product_list.jsx';
+import ProductListContainer from '../product_list_container';
 import * as HeaderActions from '../../actions/headerActions';
-import ButtonFilter from '../../components/buttons/filter.jsx';
+import ButtonFilter from '../../components/buttons/filter';
 
 class ProductListLovedContainer extends ProductListContainer {
 

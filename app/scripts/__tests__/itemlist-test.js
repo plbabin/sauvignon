@@ -1,9 +1,9 @@
 // __tests__/itemlist-test.js
 
-jest.dontMock('../components/itemList.jsx');
+jest.dontMock('../components/itemList');
 
 var React = require('react/addons');
-var ItemList = require('../components/itemList.jsx');
+var ItemList = require('../components/itemList');
 
 var TestUtils = React.addons.TestUtils;
 

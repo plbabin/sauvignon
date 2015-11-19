@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderContainer from '../containers/header_container';
-import Navigation from '../components/navigation.jsx';
-import AddScreenSelector from '../components/add_screen_selector.jsx';
+import Navigation from '../components/navigation';
+import AddScreenSelector from '../components/add_screen_selector';
 import { Route, RouteHandler, Link } from 'react-router';
 import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
 

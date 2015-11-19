@@ -1,13 +1,13 @@
 import React from 'react';
 import HeaderActions from '../actions/headerActions';
-import ButtonFilter from '../components/buttons/filter.jsx';
+import ButtonFilter from '../components/buttons/filter';
 
-import ProductList from '../components/product_list.jsx';
-import ProductListStore from '../stores/product_list_store';
-import ProductListActions from '../actions/product_list_actions';
+import ProductList from '../components/product_list.js';
+//import ProductListStore from '../stores/product_list_store';
+//import ProductListActions from '../actions/product_list_actions';
 
-import ProductStore from '../stores/product_store.js';
-import ProductAction from '../actions/product_actions.js';
+// import ProductStore from '../stores/product_store.js';
+// import ProductAction from '../actions/product_actions.js';
 
 import _ from 'lodash'
 

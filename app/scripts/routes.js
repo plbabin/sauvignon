@@ -1,14 +1,14 @@
 import React from 'react';
 import { Router, Route, NotFoundRoute, IndexRoute } from 'react-router';
 
-import AppContainer from './containers/app.jsx';
-import HomeContainer from './containers/home.jsx';
-import InfoContainer from './containers/info.jsx';
-import ProductListLovedContainer from './containers/product_list/loved.jsx';
-import ProductListTotryContainer from './containers/product_list/totry.jsx';
-import ProductListContainer from './containers/product_list.jsx';
-import ProductContainer from './containers/product.jsx';
-// import NotFound from './containers/notFound.jsx';
+import AppContainer from './containers/app_container';
+import HomeContainer from './containers/home_container';
+import InfoContainer from './containers/info_container';
+import ProductListLovedContainer from './containers/product_list/loved_container';
+import ProductListTotryContainer from './containers/product_list/totry_container';
+import ProductListContainer from './containers/product_list_container';
+import ProductContainer from './containers/product_container';
+// import NotFound from './containers/notFound';
 
 export default (
   <Route path="/" component={ AppContainer }>

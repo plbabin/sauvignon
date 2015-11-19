@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCell from './cells/product_cell.jsx';
+import ProductCell from './cells/product_cell';
 
 class ProductList extends React.Component {
   
