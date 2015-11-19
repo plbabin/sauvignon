@@ -1,17 +1,17 @@
-import Reflux from 'reflux';
+// import Reflux from 'reflux';
 
-var ProductListActions = Reflux.createActions([
-  // single
-  'addProduct',
-  'removeProduct',
-  'moveProduct',
-  'updateProduct',
-  'getProducts',
-  'updateList',
+// var ProductListActions = Reflux.createActions([
+//   // single
+//   'addProduct',
+//   'removeProduct',
+//   'moveProduct',
+//   'updateProduct',
+//   'getProducts',
+//   'updateList',
 
-  // lists  
-  'setType',
-  'setSortBy'
-]);
+//   // lists  
+//   'setType',
+//   'setSortBy'
+// ]);
 
-export default ProductListActions;
+// export default ProductListActions;

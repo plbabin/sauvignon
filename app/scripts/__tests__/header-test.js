@@ -1,12 +1,12 @@
 // __tests__/header-test.js
 
-jest.dontMock('../components/header.jsx');
-jest.dontMock('../../../test-utils/stubRouterContext.jsx');
+jest.dontMock('../components/header');
+jest.dontMock('../../../test-utils/stubRouterContext');
 
 var React = require('react/addons');
-var Header = require('../components/header.jsx');
+var Header = require('../components/header');
 
-var StubRouterContext = require('../../../test-utils/stubRouterContext.jsx');
+var StubRouterContext = require('../../../test-utils/stubRouterContext');
 
 var TestUtils = React.addons.TestUtils;
 

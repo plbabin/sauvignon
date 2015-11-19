@@ -1,9 +1,22 @@
-import Reflux from 'reflux';
+import {SET_HEADER_TITLE, SET_HEADER_LEFT_BUTTON, SET_HEADER_RIGHT_BUTTON} from '../constants/HeaderTypes'
 
-var HeaderActions = Reflux.createActions([
-  'setTitle',
-  'setLeftButton',
-  'setRightButton'
-]);
+export function setHeaderTitle(title){
+  return {
+    type: SET_HEADER_TITLE,
+    title
+  }
+}
 
-export default HeaderActions;
+export function setHeaderLeftButton(leftButton){
+  return {
+    type: SET_HEADER_LEFT_BUTTON,
+    leftButton
+  }
+}
+
+export function setHeaderRightButton(rightButton){
+  return {
+    type: 'SET_HEADER_RIGHT_BUTTON',
+    rightButton
+  };
+}

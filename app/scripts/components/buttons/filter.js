@@ -8,11 +8,11 @@ class ButtonFilter extends React.Component{
 
   getClassName(){
     return classnames(
-      "btn_filter",
+      'btn_filter',
       'btn',
       'icon--centered', 
       this.props.className, 
-      "text-hide"
+      'text-hide'
     )
   }
 

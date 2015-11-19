@@ -9,11 +9,11 @@ class ButtonAddProductType extends React.Component{
   getClassName(){
     return classnames(
       this.props.className, 
-      "btn_add_product_type", 
-      "text-hide",
+      'btn_add_product_type', 
+      'text-hide',
       'icon--centered',
       'btn_add_product_type--'+this.props.icon,
-      {"is-active":this.props.isActive}
+      {'is-active':this.props.isActive}
     )
   }
 

@@ -1,37 +1,31 @@
 import React from 'react';
-import { Route, DefaultRoute, NotFoundRoute } from 'react-router';
+import { Router, Route, NotFoundRoute, IndexRoute } from 'react-router';
 
-import App from './pages/app.jsx';
-import Home from './pages/home.jsx';
-import Info from './pages/info.jsx';
-import ProductListLovedPage from './pages/product_list_loved_page.jsx';
-import ProductListTotryPage from './pages/product_list_totry_page.jsx';
-import ProductListPage from './pages/product_list_page.jsx';
-import ProductPage from './pages/product_page.jsx';
-import NotFound from './pages/notFound.jsx';
+import AppContainer from './containers/app_container';
+import HomeContainer from './containers/home_container';
+import InfoContainer from './containers/info_container';
+import ProductListLovedContainer from './containers/product_list/loved_container';
+import ProductListTotryContainer from './containers/product_list/totry_container';
+import ProductListContainer from './containers/product_list_container';
+import ProductContainer from './containers/product_container';
+// import NotFound from './containers/notFound';
 
-var routes = (
-  <Route name="app" path="/" handler={ App }>
-    
-    <Route name="info" handler={ Info } />
+export default (
+  <Route path="/" component={ AppContainer }>
 
     <Route path="products">
-      <Route name="loved" path="loved" handler={ProductListLovedPage}>
-        <Route path=":productId" handler={ProductPage} />
+      <Route path="loved" component={ProductListLovedContainer}>
+        <Route path=":productId" component={ProductContainer} />
       </Route>
-      <Route name="totry" path="totry" handler={ProductListTotryPage}>
-        <Route path=":productId" handler={ProductPage} />
+      <Route path="totry" component={ProductListTotryContainer}>
+        <Route path=":productId" component={ProductContainer} />
       </Route>
     </Route>
 
-    <Route name="settings" handler={ Info } />
-    <Route name="stores" handler={ Info } />
-    <Route name="add" handler={ Info } />
-    <Route name="home" handler={ Home } />
+    <Route path="settings" component={ InfoContainer } />
+    <Route path="stores" component={ InfoContainer } />
+    <Route path="add" component={ InfoContainer } />
 
-    <DefaultRoute handler={ Home } />
-    <NotFoundRoute handler={ NotFound } />
+    <IndexRoute component={HomeContainer} />
   </Route>
 );
-
-export default routes;

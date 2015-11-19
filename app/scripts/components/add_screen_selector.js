@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import classnames from 'classnames';
-import ButtonAddProduct from '../components/buttons/add_product.jsx';
-import ButtonAddProductType from '../components/buttons/add_product_type.jsx';
+import ButtonAddProduct from '../components/buttons/add_product';
+import ButtonAddProductType from '../components/buttons/add_product_type';
 
 class AddScreenSelector extends React.Component{
   constructor(props, context) {
@@ -33,8 +33,8 @@ class AddScreenSelector extends React.Component{
     return (
       <div>
         <div className={this.getModalClassName()}>
-          <div className="modal__content" onClick={this.props.toggleModal} >
-            <ButtonAddProduct onclick={this.props.toggleModal} isActive={this.props.isActive}>Add</ButtonAddProduct>
+          <div className="modal__content" onClick={this.props.onToggleModal} >
+            <ButtonAddProduct onclick={this.props.onToggleModal} isActive={this.props.isActive}>Add</ButtonAddProduct>
             <ButtonAddProductType onclick={this.openSearchByCamera.bind(this)} icon="camera" isActive={this.props.isActive}>Camera</ButtonAddProductType>
             <ButtonAddProductType onclick={this.openSearchByText.bind(this)} icon="search" isActive={this.props.isActive}>Search</ButtonAddProductType>
           </div>
