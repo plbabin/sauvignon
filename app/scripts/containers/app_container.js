@@ -41,8 +41,8 @@ class AppContainer extends React.Component {
         >
           {this.props.children}
         </RouteCSSTransitionGroup>
-        <Navigation isAddScreenActive={this.state.isAddScreenActive} addScreenOnClick={this.toggleAddScreen.bind(this)} />
-        <AddScreenSelector isActive={this.state.isAddScreenActive} toggleModal={this.toggleAddScreen.bind(this)} />
+        <Navigation {...this.state} onClickToggleAddScreen={this.toggleAddScreen.bind(this)} />
+        <AddScreenSelector isActive={this.state.isAddScreenActive} onToggleModal={this.toggleAddScreen.bind(this)} />
       </div>
     );
   }

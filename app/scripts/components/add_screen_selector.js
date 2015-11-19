@@ -33,8 +33,8 @@ class AddScreenSelector extends React.Component{
     return (
       <div>
         <div className={this.getModalClassName()}>
-          <div className="modal__content" onClick={this.props.toggleModal} >
-            <ButtonAddProduct onclick={this.props.toggleModal} isActive={this.props.isActive}>Add</ButtonAddProduct>
+          <div className="modal__content" onClick={this.props.onToggleModal} >
+            <ButtonAddProduct onclick={this.props.onToggleModal} isActive={this.props.isActive}>Add</ButtonAddProduct>
             <ButtonAddProductType onclick={this.openSearchByCamera.bind(this)} icon="camera" isActive={this.props.isActive}>Camera</ButtonAddProductType>
             <ButtonAddProductType onclick={this.openSearchByText.bind(this)} icon="search" isActive={this.props.isActive}>Search</ButtonAddProductType>
           </div>

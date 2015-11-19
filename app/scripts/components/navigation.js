@@ -28,7 +28,7 @@ class Navigation extends React.Component{
             <NavigationElement route="products/totry" icon="totry">To-Try</NavigationElement>
           </li>
           <li className={this.getListClassName('add')}>
-            <ButtonAddProduct onclick={this.props.addScreenOnClick} isActive={this.props.isAddScreenActive}>Add</ButtonAddProduct>
+            <ButtonAddProduct onclick={this.props.onClickToggleAddScreen} isActive={this.props.isAddScreenActive}>Add</ButtonAddProduct>
           </li>
           <li className={this.getListClassName('store')}>
             <NavigationElement route="stores" icon="outlets">Store</NavigationElement>
