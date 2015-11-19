@@ -32,4 +32,10 @@ class Header extends React.Component{
 
 }
 
+Header.propTypes = {
+  leftButton: React.PropTypes.any.isRequired,
+  title: React.PropTypes.string.isRequired,
+  rightButton: React.PropTypes.any.isRequired
+}
+
 export default Header;
