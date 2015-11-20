@@ -5,7 +5,9 @@ import fetch from 'isomorphic-fetch';
 // https://github.com/babel/babel-eslint/issues/21#issuecomment-76796488 is resolved
 /*eslint no-unused-vars: 1*/
 class DataInterface {
+  
   constructor() {
+    this.HOST_URL = window.location.host;
     this.inDom = true;
     this.response = {};
     this.error = false;
@@ -17,8 +19,8 @@ class DataInterface {
   }
 
   getUrl(path, params){
-    var url = 'http://' + window.location.host + '/api' + path;
-    console.log(url);
+    var url = 'http://' + this.HOST_URL + '/api' + path;
+
     if (params) {
       var params_string = [];
       Object.keys(params).forEach((key)=> {
