@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, RouteHandler, Link } from 'react-router';
 
 import { connect }            from 'react-redux';
-import { pushState }          from 'redux-router';
+import { pushState, replaceState } from 'redux-router';
 import { bindActionCreators } from 'redux'
 
 import HeaderContainer from '../containers/header_container';
@@ -17,12 +17,25 @@ class AppContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {isAddScreenActive: false};
+
+    let {location} = this.props;
+    
+    // IF MODAL, return to where you should be
+    if( location.state && location.state.modal ){
+      let pathname = '/';
+      if(location.state.returnTo){
+        pathname = location.state.returnTo;
+      }
+
+      const { dispatch } = this.props;
+      //let location = this.props.history.createLocation('/products/add', {modal:true}, null, 'product-add');
+      //this.props.history.transitionTo(location);
+      dispatch(replaceState(null, pathname));
+    }
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('nextProps', nextProps);
     if ((
-      nextProps.location.key !== this.props.location.key &&
       nextProps.location.state &&
       nextProps.location.state.modal
     )) {
@@ -38,8 +51,10 @@ class AppContainer extends React.Component {
       e.nativeEvent.stopImmediatePropagation();
     }
 
-    let location = this.props.history.createLocation('/products/add', {modal:true}, null, 'product-add');
-    this.props.history.transitionTo(location);
+    const { dispatch } = this.props;
+    //let location = this.props.history.createLocation('/products/add', {modal:true}, null, 'product-add');
+    //this.props.history.transitionTo(location);
+    dispatch(pushState({modal:true, key: 'product-add', returnTo: this.props.location.pathname}, '/products/add'));
   }
 
   getCurrentTransition(){
@@ -90,4 +105,13 @@ class AppContainer extends React.Component {
   
 }
 
-export default AppContainer
+function mapDispatchToProps(dispatch) {
+  return {dispatch}
+}
+
+export default connect(
+  (state) => ({
+    router: state.router
+  }),
+  mapDispatchToProps
+)(AppContainer)
