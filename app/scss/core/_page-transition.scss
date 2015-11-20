@@ -1,6 +1,14 @@
 .page-transition{
   position: relative;
   
+  .page-transition-leave{
+    display:none;
+  }
+
+  .page-transition-enter{
+    display:block;
+  }
+
   &__toggle-leave,
   &__toggle-enter{
     transition: opacity .5s ease-in;
@@ -32,6 +40,10 @@
   }
 
   &__cover-vertical{
+
+  }
+
+  &__cover-horizontal{
 
   }
 

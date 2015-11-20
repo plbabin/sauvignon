@@ -27,9 +27,9 @@ class ButtonAddProduct extends React.Component{
 
 }
 
-ButtonAddProduct.propTypes = {
-  isActive: React.PropTypes.bool.isRequired
-};
+// ButtonAddProduct.propTypes = {
+//   isActive: React.PropTypes.bool.isRequired
+// };
 ButtonAddProduct.defaultProps = {isActive: false };
 
 

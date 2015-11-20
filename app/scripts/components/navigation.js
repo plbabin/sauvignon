@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+
 import NavigationElement from '../components/navigation_element';
 import ButtonAddProduct from './buttons/add_product';
 import classnames from 'classnames';
@@ -28,7 +29,7 @@ class Navigation extends React.Component{
             <NavigationElement route="products/totry" icon="totry">To-Try</NavigationElement>
           </li>
           <li className={this.getListClassName('add')}>
-            <ButtonAddProduct onclick={this.props.onClickToggleAddScreen} isActive={this.props.isAddScreenActive}>Add</ButtonAddProduct>
+            <ButtonAddProduct onclick={this.props.onClickToggleAddScreen}>Add</ButtonAddProduct>
           </li>
           <li className={this.getListClassName('store')}>
             <NavigationElement route="stores" icon="outlets">Store</NavigationElement>
