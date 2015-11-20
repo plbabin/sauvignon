@@ -3,10 +3,21 @@ import React from 'react';
 import { connect }            from 'react-redux';
 import { bindActionCreators } from 'redux'
 
+import HeaderSearchContainer from '../containers/header_search_container';
+import ProductListContainer from '../containers/product_list_container';
+
 class ProductAddContainer extends React.Component {
   
   constructor(props){
     super(props);
+
+    this.state = {
+      isLoading:false
+    }
+  }
+
+  onSearchTextChange(e) {
+
   }
 
   render() {
@@ -19,10 +30,10 @@ class ProductAddContainer extends React.Component {
       this.previousChildren
     )
 
-    //var name = this.context.router.getCurrentPath();
     return (
-      <div>
-        content
+      <div className="page-container">
+        <HeaderSearchContainer onTextChange={this.onSearchTextChange.bind(this)} />
+        <ProductListContainer {...this.state} ordering={true}  />
       </div>
     );
   }

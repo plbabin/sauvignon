@@ -6,13 +6,11 @@ const defaultState = new Immutable.List();
 
 export default function productReducer(state = defaultState, action) {
   switch(action.type) {
-    case 'GET_TODOS':
-      return state.concat(action.res.data);
-    case 'CREATE_TODO':
+    case ADD_PRODUCT:
       return state.concat(action.res.data.text);
-    case 'EDIT_TODO':
+    case UPDATE_PRODUCT:
       return state.set(action.id, action.text);
-    case 'DELETE_TODO':
+    case DELETE_PRODUCT:
       return state.delete(action.id);
     default:
       return state;
