@@ -6,6 +6,8 @@ import { pushState }          from 'redux-router';
 import { bindActionCreators } from 'redux'
 
 import HeaderContainer from '../containers/header_container';
+import ModalContainer from '../containers/modal_container';
+
 import Navigation from '../components/navigation';
 
 import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
@@ -77,20 +79,15 @@ class AppContainer extends React.Component {
           }
         </RouteCSSTransitionGroup>
         <Navigation {...this.state} onClickToggleAddScreen={this.toggleAddScreen.bind(this)} />
+        {isModal && (
+          <ModalContainer returnTo={location.state.returnTo} isFullscreen={true}>
+            {this.props.children}
+          </ModalContainer>
+        )}
       </div>
     );
   }
   
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return {dispatch}
-// }
-
-// export default connect(
-//   (state) => ({
-//     router: state.router
-//   }),
-//   mapDispatchToProps
-// )(AppContainer)
 export default AppContainer
