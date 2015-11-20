@@ -16,8 +16,8 @@ class ProductAddContainer extends React.Component {
     }
   }
 
-  onSearchTextChange(e) {
-
+  onSearchTextChange(newSearchText) {
+    console.log('trigger search to API', newSearchText);
   }
 
   render() {
@@ -32,7 +32,7 @@ class ProductAddContainer extends React.Component {
 
     return (
       <div className="page-container">
-        <HeaderSearchContainer onTextChange={this.onSearchTextChange.bind(this)} />
+        <HeaderSearchContainer onSearchTextChange={this.onSearchTextChange.bind(this)} />
         <ProductListContainer {...this.state} ordering={true}  />
       </div>
     );

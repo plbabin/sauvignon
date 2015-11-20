@@ -11,7 +11,7 @@ class ProductList extends React.Component {
     var productsComponent = this.props.products.map(product => <ProductCell key={product.id} {...product} />);;
 
     return (
-      <div class="product-list">
+      <div className="product-list">
         <ul>
           { productsComponent }
         </ul>
