@@ -8,6 +8,7 @@ import ProductListLovedContainer from './containers/product_list/loved_container
 import ProductListTotryContainer from './containers/product_list/totry_container';
 import ProductListContainer from './containers/product_list_container';
 import ProductContainer from './containers/product_container';
+import ProductAddContainer from './containers/product_add_container';
 // import NotFound from './containers/notFound';
 
 export default (
@@ -20,6 +21,9 @@ export default (
       <Route path="totry" component={ProductListTotryContainer}>
         <Route path=":productId" component={ProductContainer} />
       </Route>
+
+      <Route name="product-add" path="add" component={ProductAddContainer} />
+
     </Route>
 
     <Route path="settings" component={ InfoContainer } />

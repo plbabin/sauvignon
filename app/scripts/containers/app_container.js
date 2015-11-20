@@ -12,16 +12,18 @@ import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
 
 class AppContainer extends React.Component {
   
-  constructor(props, context){
-    super(props, context);
+  constructor(props){
+    super(props);
     this.state = {isAddScreenActive: false};
   }
 
   toggleAddScreen(e){
-    e.preventDefault();
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    console.log('toggleModal');
+    if(e){
+      e.preventDefault();
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+    }
+    
     this.setState({isAddScreenActive:!this.state.isAddScreenActive})
   }
   getCurrentTransition(){
@@ -35,7 +37,6 @@ class AppContainer extends React.Component {
 
   render() {
     //var name = this.context.router.getCurrentPath();
-
     return (
       <div className="app">
         <HeaderContainer />
@@ -52,11 +53,5 @@ class AppContainer extends React.Component {
   }
   
 }
-
-AppContainer.contextTypes = {
-  history: React.PropTypes.object.isRequired,
-  location: React.PropTypes.object.isRequired
-}
-
 
 export default AppContainer

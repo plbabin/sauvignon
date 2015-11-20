@@ -1,5 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router';
+
+import { connect } from 'react-redux';
+import { pushState } from 'redux-router';
+import { bindActionCreators } from 'redux'
+
 import classnames from 'classnames';
 import ButtonAddProduct from '../components/buttons/add_product';
 import ButtonAddProductType from '../components/buttons/add_product_type';
@@ -27,6 +31,11 @@ class AddScreenSelector extends React.Component{
     e.stopPropagation();
     e.preventDefault();
     e.nativeEvent.stopImmediatePropagation();
+    const { dispatch } = this.props;
+
+    dispatch(pushState(null, '/products/add'));
+
+    this.props.onToggleModal();
   }
 
   render() {
@@ -50,4 +59,13 @@ AddScreenSelector.propTypes = {};
 AddScreenSelector.defaultProps = {};
 
 
-export default AddScreenSelector;
+function mapDispatchToProps(dispatch) {
+  return {dispatch}
+}
+
+export default connect(
+  (state) => ({
+    router: state.router
+  }),
+  mapDispatchToProps
+)(AddScreenSelector)
