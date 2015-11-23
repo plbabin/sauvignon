@@ -13,6 +13,10 @@ class SearchInput extends React.Component{
     this.props.onSearchTextChange(nextState.searchText);
   }
 
+  shouldComponentUpdate(nextProps, nextState){
+    return nextState.searchText !== this.state.searchText;
+  }
+
   getClassName(){
     return classnames({})
   }

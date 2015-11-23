@@ -37,7 +37,7 @@ class ProductAddContainer extends React.Component {
     return (
       <div className="page-container">
         <HeaderSearchContainer onSearchTextChange={this.onSearchTextChange.bind(this)} />
-        <ProductListContainer items={items} isFetching={isFetching} ordering={true}  />
+        <ProductListContainer products={items} isFetching={isFetching} ordering={true}  />
       </div>
     );
   }
@@ -58,27 +58,17 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-function mapStateToProps(){
-  const {
-    pagination: { stargazersByRepo },
-    entities: { users, repos }
-  } = state
+function mapStateToProps(state){
+  let { items } = state.productsSearch;
 
-  const fullName = `${login}/${name}`
-  const stargazersPagination = stargazersByRepo[fullName] || { ids: [] }
-  const stargazers = stargazersPagination.ids.map(id => users[id])
+  // do the sorting and ordering here
 
   return {
-    fullName,
-    name,
-    stargazers,
-    stargazersPagination,
-    repo: repos[fullName],
-    owner: users[login]
+    items: items,
+    isFetching: state.productsSearch.isFetching
   }
 }
 
 export default connect(
-  (state) => ({
-  }), mapDispatchToProps
+  mapStateToProps, mapDispatchToProps
 )(ProductAddContainer)

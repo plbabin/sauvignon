@@ -40,7 +40,6 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(
   (state) => ({
-    products: state.productsSearch.items
   }),
   mapDispatchToProps
 )(ProductListContainer)
