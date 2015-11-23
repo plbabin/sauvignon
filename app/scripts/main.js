@@ -12,7 +12,7 @@ import routes               from './routes';
 
 import { Provider }         from 'react-redux';
 import * as reducers        from './reducers';
-import promiseMiddleware    from './lib/promiseMiddleware';
+import apiMiddleware        from './lib/middleware/api';
 import createLogger         from 'redux-logger';
 
 import { createStore,
@@ -31,7 +31,7 @@ const reducer = combineReducers(
 );
 
 const store = compose(
-  applyMiddleware(promiseMiddleware, logger),
+  applyMiddleware(apiMiddleware, logger),
   reduxReactRouter({
     routes,
     createHistory: createHashHistory

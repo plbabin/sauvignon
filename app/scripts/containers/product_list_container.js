@@ -23,7 +23,7 @@ class ProductListContainer extends React.Component {
 
 
   render() {
-    let products = this.props.products || [];
+    let products = this.props.products;
 
     return (
       <div>
@@ -40,7 +40,7 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(
   (state) => ({
-    products: state.products.toJS()
+    products: state.productsSearch.items
   }),
   mapDispatchToProps
 )(ProductListContainer)

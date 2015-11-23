@@ -8,6 +8,7 @@ class ProductList extends React.Component {
   }
 
   render() {
+    console.log('Products', this.props.products);
     var productsComponent = this.props.products.map(product => <ProductCell key={product.id} {...product} />);;
 
     return (
@@ -21,8 +22,8 @@ class ProductList extends React.Component {
                                      
 }
 
-ProductList.propTypes = {
-  products : React.PropTypes.array.isRequired
-};
+// ProductList.propTypes = {
+//   products : React.PropTypes.array.isRequired
+// };
 
 export default ProductList;

@@ -78,5 +78,8 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.1",
     "whatwg-fetch": "^0.10.0"
+  },
+  "dependencies": {
+    "normalizr": "^1.4.0"
   }
 }
