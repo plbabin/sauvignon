@@ -11,7 +11,7 @@ const defaultState = new Immutable.Map({
   'rightButton': false
 });
 
-export default function headerReducer(state = defaultState, action) {
+export default function header(state = defaultState, action) {
   switch(action.type) {
     case SET_HEADER_TITLE:
       return state.set('title', action);

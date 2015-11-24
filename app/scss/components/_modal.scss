@@ -10,6 +10,18 @@
   z-index: 2000;
   visibility: hidden;
   backface-visibility: hidden;
+  
+  &.modal--fullscreen{
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+
+    .modal__content{
+      padding:0;
+      border-radius: 0;
+    }
+  }
 
   &--show ~ .modal__overlay{
     opacity: 1;
@@ -31,6 +43,18 @@
     &.modal--show .modal__content{
       transform: translateY(0);
       opacity: 1;
+    }
+  }
+
+  &--slide-effect{
+    .modal__content{
+      transform: translateY(100%);
+      opacity: 1;
+      transition: all 0.3s;
+    }
+
+    &.modal--show .modal__content{
+      transform: translateY(0);
     }
   }
 

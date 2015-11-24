@@ -8,7 +8,7 @@ class ProductCell extends React.Component {
 
   render() {
     return (
-      <li></li>
+      <li>{this.props.name}</li>
     );
   }
                                      

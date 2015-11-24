@@ -35,6 +35,7 @@ import runSequence from 'run-sequence';
 import path from 'path';
 import fs from 'fs';
 import merge from 'utils-merge';
+// import lrload from 'livereactload';
 
 // server
 import browserSync, { reload } from 'browser-sync';
@@ -43,6 +44,8 @@ import htmlReplace from 'gulp-html-replace';
 // nicer browserify errors
 import gutil from 'gulp-util';
 import chalk from 'chalk';
+
+const isProd = process.env.NODE_ENV === "production"
 
 const paths = {
   bundle: 'app.js',
@@ -121,7 +124,8 @@ gulp.task('clean', cb => {
 });
 
 gulp.task('watchify', function () {
-  var args = merge(watchify.args, { debug: true });
+  //plugin: isProd ? [] : [ lrload ] 
+  var args = merge(watchify.args, { debug: true});
 
   var bundler = browserify(paths.srcJsx, args) // Browserify
       .plugin(watchify, {ignoreWatch: ['**/node_modules/**', '**/bower_components/**']}) // Watchify to watch source file changes
