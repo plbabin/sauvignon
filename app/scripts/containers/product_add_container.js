@@ -16,12 +16,38 @@ class ProductAddContainer extends React.Component {
     this.state = {
       isLoading:false
     }
+
+    this.timeout = null;
   }
 
   onSearchTextChange(newSearchText) {
-    newSearchText = 'maker';
-    console.log('trigger search to API', newSearchText);
-    this.props.searchProduct(newSearchText);
+    if(this.timeout) {
+      clearTimeout(this.timeout);
+      this.timeout=null;
+    }
+    const method = ()=>{
+      console.log('trigger search to API', newSearchText);
+      this.props.searchProduct(newSearchText);
+    };
+
+    if(!this.props.isFetching){
+      this.timeout = setTimeout(method,300);
+    }else{
+      this.queueRequest = method;
+    }
+  }
+
+  componentDidUpdate(){
+    if(this.queueRequest && !this.props.isFetching){
+      this.queueRequest();
+      this.queueRequest = null;
+    }
+  }
+
+  componentWillUnmount(){
+    if (this.timeout) {
+      clearTimeout(this.timeout)
+    }
   }
 
   render() {

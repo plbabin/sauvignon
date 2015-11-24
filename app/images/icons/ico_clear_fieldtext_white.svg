@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
     <title>ico_clear_fieldtext_white</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Sauvignon-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="clear-copy-+-Search-Icon-+-ico_search_header" sketch:type="MSLayerGroup" transform="translate(-429.000000, 0.000000)">
-            <g id="clear-copy" transform="translate(429.000000, 0.000000)" sketch:type="MSShapeGroup">
-                <path d="M9.00018399,17.5 C4.31330765,17.5 0.5,13.6870535 0.5,8.99815977 C0.5,4.31294653 4.31330765,0.5 9.00018399,0.5 C13.6870603,0.5 17.5,4.31294653 17.5,8.99815977 C17.5,13.6870535 13.6870603,17.5 9.00018399,17.5 L9.00018399,17.5 Z" id="Fill-209" fill="#FFFFFF"></path>
-                <path d="M11.653,12.005 L6,6.355 L6.3535,6 L12.0065,11.65 L11.653,12.005" id="Fill-210" fill="#343535"></path>
-                <path d="M6.3535,12.005 L6,11.65 L11.653,6 L12.0065,6.355 L6.3535,12.005" id="Fill-211" fill="#343535"></path>
+    <g id="Sauvignon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Add---Step-#2" sketch:type="MSArtboardGroup" transform="translate(-442.000000, -62.000000)">
+            <g id="header-nav" sketch:type="MSLayerGroup" transform="translate(0.000000, 35.000000)">
+                <g id="Search-Bar" transform="translate(12.000000, 5.000000)" sketch:type="MSShapeGroup">
+                    <g id="clear" transform="translate(429.000000, 21.000000)">
+                        <path d="M18.000368,35 C8.62661529,35 1,27.3741069 1,17.9963195 C1,8.62589305 8.62661529,1 18.000368,1 C27.3741207,1 35,8.62589305 35,17.9963195 C35,27.3741069 27.3741207,35 18.000368,35 L18.000368,35 Z" id="Fill-209" fill="#FFFFFF"></path>
+                        <path d="M23.306,24.01 L12,12.71 L12.707,12 L24.013,23.3 L23.306,24.01" id="Fill-210" fill="#343535"></path>
+                        <path d="M12.707,24.01 L12,23.3 L23.306,12 L24.013,12.71 L12.707,24.01" id="Fill-211" fill="#343535"></path>
+                    </g>
+                </g>
             </g>
         </g>
     </g>

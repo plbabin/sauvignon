@@ -1,0 +1,32 @@
+.search_input{
+  display:flex;
+  
+  .search_input__icon{
+    flex:0 1 auto;
+    padding:0 7px;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+
+    .icon{
+      align-self: center;
+    }
+  }
+
+  &--is-empty .search_input__clear{
+    display:none;
+  }
+
+  input{
+    outline:none;
+    flex:1;
+    background:none;
+    border:none;
+    color:$header-color;
+    @include x-rem(font-size, 14px);
+
+    &:focus{
+      outline:none;
+    }
+  }
+}
