@@ -29,7 +29,7 @@ class Navigation extends React.Component{
             <NavigationElement route="products/totry" icon="totry">To-Try</NavigationElement>
           </li>
           <li className={this.getListClassName('add')}>
-            <ButtonAddProduct onclick={this.props.onClickToggleAddScreen}>Add</ButtonAddProduct>
+            <ButtonAddProduct onclick={this.props.onClickProductAdd}>Add</ButtonAddProduct>
           </li>
           <li className={this.getListClassName('store')}>
             <NavigationElement route="stores" icon="outlets">Store</NavigationElement>

@@ -11,17 +11,13 @@ class HeaderSearchContainer extends React.Component {
     super(props);
   }
 
-  close(){
-
-  }
-
   render() {
 
     return (
       <div className="header header--search">
         <SearchInput onSearchTextChange={this.props.onSearchTextChange} />
         <div className="header--search__close">
-          <a onClick={this.close.bind(this)}>close</a>
+          <a onClick={this.props.onClose}>close</a>
         </div>
       </div>
     );

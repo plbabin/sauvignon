@@ -21,17 +21,7 @@ class AppContainer extends React.Component {
     let {location} = this.props;
     
     // IF MODAL, return to where you should be
-    if( location.state && location.state.modal ){
-      let pathname = '/';
-      if(location.state.returnTo){
-        pathname = location.state.returnTo;
-      }
-
-      const { dispatch } = this.props;
-      //let location = this.props.history.createLocation('/products/add', {modal:true}, null, 'product-add');
-      //this.props.history.transitionTo(location);
-      dispatch(replaceState(null, pathname));
-    }
+    this.hideModal();
   }
 
   componentWillReceiveProps(nextProps){
@@ -44,7 +34,7 @@ class AppContainer extends React.Component {
     }
   }
 
-  toggleAddScreen(e){
+  showProductAddModal(e){
     if(e){
       e.preventDefault();
       e.stopPropagation();
@@ -55,6 +45,28 @@ class AppContainer extends React.Component {
     //let location = this.props.history.createLocation('/products/add', {modal:true}, null, 'product-add');
     //this.props.history.transitionTo(location);
     dispatch(pushState({modal:true, key: 'product-add', returnTo: this.props.location.pathname}, '/products/add'));
+  }
+
+  hideModal(e){
+
+    if(e){
+      e.preventDefault();
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+    }
+
+    const { location } = this.props;
+
+    if(location.state && location.state.modal){
+      let pathname = '/';
+      if(location.state.returnTo){
+        pathname = location.state.returnTo;
+      }
+
+      const { dispatch } = this.props;
+      dispatch(replaceState(null, pathname));
+    }
+    
   }
 
   getCurrentTransition(){
@@ -93,9 +105,9 @@ class AppContainer extends React.Component {
             this.props.children
           }
         </RouteCSSTransitionGroup>
-        <Navigation {...this.state} onClickToggleAddScreen={this.toggleAddScreen.bind(this)} />
+        <Navigation {...this.state} onClickProductAdd={this.showProductAddModal.bind(this)} />
         {isModal && (
-          <ModalContainer returnTo={location.state.returnTo} isFullscreen={true}>
+          <ModalContainer returnTo={location.state.returnTo} isFullscreen={true} onHide={this.hideModal.bind(this)}>
             {this.props.children}
           </ModalContainer>
         )}
