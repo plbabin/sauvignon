@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import HeaderSearchContainer from '../containers/header_search_container';
 import ProductListContainer from '../containers/product_list_container';
 
-import { fetchProductSearch } from '../actions/product_search_actions';
+import { searchProduct } from '../actions/product_actions';
 
 class ProductAddContainer extends React.Component {
   
@@ -21,11 +21,11 @@ class ProductAddContainer extends React.Component {
   onSearchTextChange(newSearchText) {
     newSearchText = 'maker';
     console.log('trigger search to API', newSearchText);
-    this.props.fetchProductSearch(newSearchText);
+    this.props.searchProduct(newSearchText);
   }
 
   render() {
-    const { location, items, isFetching } = this.props
+    const { location, products, isFetching } = this.props
 
     let isModal = (
       location && 
@@ -37,7 +37,7 @@ class ProductAddContainer extends React.Component {
     return (
       <div className="page-container">
         <HeaderSearchContainer onSearchTextChange={this.onSearchTextChange.bind(this)} />
-        <ProductListContainer products={items} isFetching={isFetching} ordering={true}  />
+        <ProductListContainer products={products} isFetching={isFetching} ordering={true}  />
       </div>
     );
   }
@@ -54,18 +54,20 @@ class ProductAddContainer extends React.Component {
 function mapDispatchToProps(dispatch) {
   return {
     dispatch, 
-    fetchProductSearch: bindActionCreators(fetchProductSearch, dispatch)
+    searchProduct: bindActionCreators(searchProduct, dispatch)
   }
 }
 
 function mapStateToProps(state){
-  let { items } = state.productsSearch;
+  let { search_items_ordered_ids, search_items } = state.products;
 
-  // do the sorting and ordering here
+  const products = search_items_ordered_ids.map((id) => {
+    return search_items.get(id.toString());
+  } );
 
   return {
-    items: items,
-    isFetching: state.productsSearch.isFetching
+    products: products,
+    isFetching: state.products.isFetching
   }
 }
 

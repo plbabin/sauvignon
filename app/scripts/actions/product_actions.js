@@ -1,5 +1,10 @@
-import * as types from '../constants/ProductTypes';
-import fetch from 'isomorphic-fetch';
+import { CALL_API, Schemas } from '../lib/middleware/api';
+import { ADD_PRODUCT, 
+         UPDATE_PRODUCT, 
+         DELETE_PRODUCT,
+         PRODUCT_SEARCH_REQUEST,
+         PRODUCT_SEARCH_SUCCESS,
+         PRODUCT_SEARCH_FAILURE } from '../constants/ProductTypes';
 
 export function createProduct(product){
   return {
@@ -25,6 +30,23 @@ export function deleteProduct(id){
 
 export function parseProducts(product){
 
+}
+
+// Fetches a list of products based on a search term
+// Relies on the custom API middleware defined in ../middleware/api.js.
+export function searchProduct(term) {
+  console.log('searchProduct', term);
+  return {
+    term,
+    [CALL_API]: {
+      types: [ PRODUCT_SEARCH_REQUEST, PRODUCT_SEARCH_SUCCESS, PRODUCT_SEARCH_FAILURE ],
+      endpoint: `search/products`,
+      params: {
+        term
+      },
+      schema: Schemas.PRODUCT_ARRAY
+    }
+  }
 }
 
 // function requestPosts(reddit) {
