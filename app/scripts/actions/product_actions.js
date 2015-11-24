@@ -4,18 +4,19 @@ import { ADD_PRODUCT,
          DELETE_PRODUCT,
          PRODUCT_SEARCH_REQUEST,
          PRODUCT_SEARCH_SUCCESS,
-         PRODUCT_SEARCH_FAILURE } from '../constants/ProductTypes';
+         PRODUCT_SEARCH_FAILURE,
+         PRODUCT_SEARCH_CLEAR } from '../constants/ProductTypes';
 
 export function createProduct(product){
   return {
-    type: types.CREATE_PRODUCT,
+    type: CREATE_PRODUCT,
     product
   }
 }
 
 export function updateProduct(id, product){
   return {
-    type: types.UPDATE_PRODUCT,
+    type: UPDATE_PRODUCT,
     id,
     product
   }
@@ -23,7 +24,7 @@ export function updateProduct(id, product){
 
 export function deleteProduct(id){
   return {
-    type: types.DELETE_PRODUCT,
+    type: DELETE_PRODUCT,
     id
   };
 }
@@ -35,7 +36,7 @@ export function parseProducts(product){
 // Fetches a list of products based on a search term
 // Relies on the custom API middleware defined in ../middleware/api.js.
 export function searchProduct(term) {
-  console.log('searchProduct', term);
+  
   return {
     term,
     [CALL_API]: {
@@ -46,6 +47,12 @@ export function searchProduct(term) {
       },
       schema: Schemas.PRODUCT_ARRAY
     }
+  }
+}
+
+export function clearSearch(){
+  return {
+    type: PRODUCT_SEARCH_CLEAR
   }
 }
 

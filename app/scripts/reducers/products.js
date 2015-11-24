@@ -6,6 +6,7 @@ import { ADD_PRODUCT,
          PRODUCT_SEARCH_REQUEST,
          PRODUCT_SEARCH_SUCCESS,
          PRODUCT_SEARCH_FAILURE,
+         PRODUCT_SEARCH_CLEAR,
          SET_FILTER,
          SET_SORT } from '../constants/ProductTypes'
 
@@ -42,8 +43,11 @@ export default function product(state = defaultState, action) {
         search_items_ordered_ids:new Immutable.List(action.response.result)
       })
     case PRODUCT_SEARCH_FAILURE:
+    case PRODUCT_SEARCH_CLEAR:
       return Object.assign({}, state, {
-        isFetching: false
+        isFetching: false,
+        search_items: new Immutable.Map(),
+        search_items_ordered_ids:new Immutable.List()
       })
     case SET_FILTER:
       return state;

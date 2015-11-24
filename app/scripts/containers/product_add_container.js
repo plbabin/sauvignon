@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import HeaderSearchContainer from '../containers/header_search_container';
 import ProductListContainer from '../containers/product_list_container';
 
-import { searchProduct } from '../actions/product_actions';
+import { searchProduct, clearSearch } from '../actions/product_actions';
 
 class ProductAddContainer extends React.Component {
   
@@ -21,6 +21,10 @@ class ProductAddContainer extends React.Component {
   }
 
   onSearchTextChange(newSearchText) {
+    if(newSearchText===''){
+      return this.props.clearSearch();
+    }
+
     if(this.timeout) {
       clearTimeout(this.timeout);
       this.timeout=null;
@@ -80,7 +84,8 @@ class ProductAddContainer extends React.Component {
 function mapDispatchToProps(dispatch) {
   return {
     dispatch, 
-    searchProduct: bindActionCreators(searchProduct, dispatch)
+    searchProduct: bindActionCreators(searchProduct, dispatch),
+    clearSearch: bindActionCreators(clearSearch, dispatch)
   }
 }
 

@@ -55,12 +55,14 @@
       
 
       &:after{
+        $padding:10px;
         content:'';
-        background:white;
-        height:$header-height - 10px;
+        position: absolute;
+        background:lighten($header-bg, 10);
+        height:$header-height - ($padding * 2);
         width:1px;
         left:0;
-        top:5px;
+        top:$padding;
       }
 
     }
