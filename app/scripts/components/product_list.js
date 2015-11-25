@@ -1,10 +1,14 @@
 import React from 'react';
 import ProductCell from './cells/product_cell';
-
+import classnames from 'classnames'
 class ProductList extends React.Component {
   
   constructor(props){
     super(props);
+  }
+
+  getClassName(){
+    return classnames(this.props.className, 'product__list');
   }
 
   render() {
@@ -12,7 +16,7 @@ class ProductList extends React.Component {
     var productsComponent = this.props.products.map(product => <ProductCell key={product.id} {...product} />);;
 
     return (
-      <div className="product-list">
+      <div className={this.getClassName()}>
         <ul>
           { productsComponent }
         </ul>

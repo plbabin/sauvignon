@@ -26,9 +26,7 @@ class ProductListContainer extends React.Component {
     let products = this.props.products;
 
     return (
-      <div>
-        <ProductList { ...this.state } products={products} />
-      </div>
+      <ProductList className="page__container__content" { ...this.state } products={products} />
     );
   }
 

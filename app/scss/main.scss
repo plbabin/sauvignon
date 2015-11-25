@@ -8,9 +8,15 @@
 @import 'core/icons';
 @import 'core/page-transition';
 
+// containers
+@import 'containers/page';
+
+// components
 @import 'components/header';
 @import 'components/nav';
 @import 'components/modal';
 @import 'components/add_screen_selector';
 @import 'components/button';
 @import 'components/search_input';
+@import 'components/product_cell';
+

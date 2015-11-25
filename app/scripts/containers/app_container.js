@@ -94,10 +94,10 @@ class AppContainer extends React.Component {
 
     //var name = this.context.router.getCurrentPath();
     return (
-      <div className="app">
+      <div className="page__container">
         <HeaderContainer />
         <RouteCSSTransitionGroup
-          component="div" className="app__content content page-transition" transitionName={this.getCurrentTransition()}
+          component="div" className="page__container__content page-transition" transitionName={this.getCurrentTransition()}
           transitionEnterTimeout={500} transitionLeaveTimeout={500}
         >
           {isModal ?
@@ -106,11 +106,13 @@ class AppContainer extends React.Component {
           }
         </RouteCSSTransitionGroup>
         <Navigation {...this.state} onClickProductAdd={this.showProductAddModal.bind(this)} />
+        
         {isModal && (
           <ModalContainer returnTo={location.state.returnTo} isFullscreen={true} onHide={this.hideModal.bind(this)}>
             {this.props.children}
           </ModalContainer>
         )}
+
       </div>
     );
   }

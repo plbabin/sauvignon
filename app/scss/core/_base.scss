@@ -26,8 +26,9 @@ body {
   height: 100%;
 }
 
-.app{
+.page__container{
   min-height:100%;
+  position:relative;
 
   &__header{
     position: fixed;
