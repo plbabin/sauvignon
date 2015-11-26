@@ -25,33 +25,42 @@ class ProductCell extends React.Component {
     }).join(',');
   }
 
+  getCellStyles(){
+    return {
+      backgroundImage:'url('+this.props.image_url+')'
+    }
+  }
+
   render() {
     return (
-      <li className="productCell">
-        <div className="productCell__imageColumn">
-          <img src={this.props.image_url} className="product__image" />
-          <div className="product__price">
-            {this.props.price_in_cents}
+      <li className="table_cell product__cell">
+        <div className="table_cell__imageColumn product__cell__imageColumn">
+          <span className="table_cell__image" style={this.getCellStyles()}></span>
+          <div className="table_cell__image-info">
+            <span className="product__price">{this.props.price_in_cents}</span>
           </div>
         </div>
-        <div className="productCell__contentColumn">
-          <div className="productCell__content productCell__swipeContent--is-visible">
-            <h2 className="product__name">{this.props.name}</h2>
-            <h3>{this.getSubtitle()}</h3>
-            <p>{this.getRegionLine()}</p>
-          </div>
-          <div className="productCell__swipeContent productCell__swipeContent--is-hidden">
-            <ul>
-              <li>
-                <a>Loved</a>
-              </li>
-              <li>
-                <a>To-try</a>
-              </li>
-              <li>
-                <a>Remove</a>
-              </li>
-            </ul>
+        <div className="table_cell__contentColumn product__cell__contentColumn">
+          <h2 className="table_cell__title">{this.props.name}</h2>
+
+          <div className="table_cell__swipeContainer table_cell__swipeContainer--is-close">
+            <div className="table_cell__swipeCell">  
+              <h3 className="table_cell__subtitle">{this.getSubtitle()}</h3>
+              <p className="table_cell__subtitle">{this.getRegionLine()}</p>
+            </div>
+            <div className="table_cell__swipeCell">
+              <ul className="table_cell__action-list">
+                <li>
+                  <a>Loved</a>
+                </li>
+                <li>
+                  <a>To-try</a>
+                </li>
+                <li>
+                  <a>Remove</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </li>
