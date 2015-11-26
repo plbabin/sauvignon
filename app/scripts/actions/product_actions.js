@@ -5,7 +5,7 @@ import { ADD_PRODUCT,
          PRODUCT_SEARCH_REQUEST,
          PRODUCT_SEARCH_SUCCESS,
          PRODUCT_SEARCH_FAILURE,
-         PRODUCT_SEARCH_CLEAR } from '../constants/ProductTypes';
+         PRODUCT_SEARCH_CLEAR } from '../constants/product';
 
 export function createProduct(product){
   return {

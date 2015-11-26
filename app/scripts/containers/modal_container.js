@@ -39,7 +39,8 @@ class ModalContainer extends React.Component{
 }
 
 ModalContainer.propTypes = {
-  isFullscreen: React.PropTypes.bool
+  isFullscreen: React.PropTypes.bool,
+  children: React.PropTypes.element.isRequired
 };
 ModalContainer.defaultProps = {
   isFullscreen: false

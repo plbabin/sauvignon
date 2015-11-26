@@ -8,7 +8,7 @@ class ProductCell extends React.Component {
 
   getSubtitle(){
     return [
-      this.props.subtype.name, 
+      this.getPropsSubObjectName(this.props.subtype), 
       this.props.volume_in_milliliters, 
       this.props.board_id
     ].filter((value)=>{
@@ -18,8 +18,8 @@ class ProductCell extends React.Component {
 
   getRegionLine(){
     return [
-      this.props.region.name, 
-      this.props.country.name
+      this.getPropsSubObjectName(this.props.region), 
+      this.getPropsSubObjectName(this.props.country)
     ].filter((value)=>{
       return (value !== '' && value !== undefined && value !== null)
     }).join(',');
@@ -29,6 +29,13 @@ class ProductCell extends React.Component {
     return {
       backgroundImage:'url('+this.props.image_url+')'
     }
+  }
+
+  getPropsSubObjectName(props){
+    if(props && props.name){
+      return props.name;
+    }
+    return null;
   }
 
   render() {

@@ -4,7 +4,7 @@ import { connect }            from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import HeaderSearchContainer from '../containers/header_search_container';
-import ProductListContainer from '../containers/product_list_container';
+import ListContainer from '../containers/list_container';
 
 import { searchProduct, clearSearch } from '../actions/product_actions';
 
@@ -17,7 +17,11 @@ class ProductAddContainer extends React.Component {
       isLoading:false
     }
 
-    this.timeout = null;
+    this.cancelOldRequest();
+  }
+
+  componentWillMount(){
+    this.props.clearSearch(); //clear search when opening container
   }
 
   onSearchTextChange(newSearchText) {
@@ -25,34 +29,42 @@ class ProductAddContainer extends React.Component {
       return this.props.clearSearch();
     }
 
-    if(this.timeout) {
-      clearTimeout(this.timeout);
-      this.timeout=null;
-    }
-    const method = ()=>{
-      console.log('trigger search to API', newSearchText);
+    this.cancelOldRequest();
+
+    const triggerSearch = ()=>{
       this.props.searchProduct(newSearchText);
     };
 
     if(!this.props.isFetching){
-      this.timeout = setTimeout(method,300);
+      this.timeout = setTimeout(triggerSearch,300);
     }else{
-      this.queueRequest = method;
+      this.queueRequest = triggerSearch;
     }
   }
 
-  componentDidUpdate(){
-    if(this.queueRequest && !this.props.isFetching){
-      this.queueRequest();
-      this.queueRequest = null;
-    }
+  componentDidUpdate(newProps,){
+    this.triggerQueuedRequest();
   }
 
   componentWillUnmount(){
+    this.cancelOldRequest();
+  }
+
+  cancelOldRequest(){
     if (this.timeout) {
       clearTimeout(this.timeout)
+      this.timeout = null;
     }
+    this.queueRequest = null;
   }
+
+  triggerQueuedRequest(){
+    if(this.queueRequest && !this.props.isFetching){
+      console.log('TRIGGER QUEUED REQUEST');
+      this.queueRequest();
+      this.queueRequest = null;
+    }
+  } 
 
   render() {
     const { location, products, isFetching } = this.props
@@ -67,7 +79,7 @@ class ProductAddContainer extends React.Component {
     return (
       <div className="page__container">
         <HeaderSearchContainer onSearchTextChange={this.onSearchTextChange.bind(this)} onClose={this.props.onHide} />
-        <ProductListContainer products={products} isFetching={isFetching} ordering={true}  />
+        <ListContainer className="page__container__content" items={products} type="product" isFetching={isFetching} ordering={true}  />
       </div>
     );
   }
@@ -90,15 +102,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state){
-  let { search_items_ordered_ids, search_items } = state.products;
-
-  const products = search_items_ordered_ids.map((id) => {
-    return search_items.get(id.toString());
-  } );
+  const { isFetching, search_items_ordered } = state.products;
 
   return {
-    products: products,
-    isFetching: state.products.isFetching
+    products: search_items_ordered,
+    isFetching: isFetching
   }
 }
 

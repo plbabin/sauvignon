@@ -3,7 +3,7 @@ import { combineReducers } from 'redux'
 import { SEARCH_PRODUCTS,
          PRODUCT_SEARCH_REQUEST,
          PRODUCT_SEARCH_SUCCESS,
-         PRODUCT_SEARCH_FAILURE } from '../constants/ProductTypes'
+         PRODUCT_SEARCH_FAILURE } from '../constants/product'
 
 const defaultState = {
   ids: new Immutable.List(),

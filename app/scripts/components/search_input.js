@@ -22,11 +22,10 @@ class SearchInput extends React.Component{
     e.preventDefault();
     e.nativeEvent.stopImmediatePropagation();
     this.setState({'searchText':''});
-
+    
   }
 
   getClassName(){
-    console.log(this.state.searchText, (this.state.searchText.length===0));
     return classnames(
       'search_input',
       {'search_input--is-empty':(this.state.searchText.length===0)}

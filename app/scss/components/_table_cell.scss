@@ -2,6 +2,7 @@
   min-height:$table-cell-height;
   border-bottom:1px solid $table-cell-border-color;
   display:flex;
+  background:$content-bg;
 
   .table_cell__imageColumn{
     padding:$table-cell-padding;
@@ -76,6 +77,14 @@
     display: inline-block;
     flex: 0 0 100%;
   }
-
+  
+  &--header{
+    min-height:1px;
+    background:$body-bg;
+    padding:$table-cell-padding / 2 $table-cell-padding;
+    color:$cell-header-text-color;
+    font-weight: bold;
+    @include x-rem(font-size, 11px);
+  }
 
 }
