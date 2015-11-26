@@ -1,0 +1,81 @@
+.table_cell{
+  min-height:$table-cell-height;
+  border-bottom:1px solid $table-cell-border-color;
+  display:flex;
+
+  .table_cell__imageColumn{
+    padding:$table-cell-padding;
+
+    flex:0 1 $table-cell-image-column;
+    text-align:center;
+  }
+
+  .table_cell__image{
+    $size:40px;
+    width:$size;
+    height:$size;
+    border-radius:$size;
+    border:1px solid $table-cell-border-color;
+    
+    display: inline-block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .table_cell__image-info{
+    color:$sec-text-color;
+    @include x-rem(font-size, 12px);
+    width:100%;
+    text-align:center;
+  }
+
+  .table_cell__contentColumn{
+    flex:1;
+    padding:$table-cell-padding;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table_cell__title{
+    margin:0;
+    padding-bottom:10px;
+    font-weight:bold;
+    color:$brand-primary;
+    @include x-rem(font-size, 14px);
+  }
+
+  .table_cell__subtitle{
+    color:$text-color;
+    font-weight:normal;
+    padding-bottom:10px;
+    margin:0;
+    @include x-rem(font-size, 13px);
+
+    &:last-child{
+      padding-bottom:0;
+    }
+  }
+
+  .table_cell__swipeContainer{
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    align-items: stretch;
+    display: flex;
+  }
+
+  .table_cell__swipeContainer--is-open{
+    .table_cell__swipeCell {
+      transform:translateX(-100%);
+    }
+  }
+
+  .table_cell__swipeCell{
+    transition:all 0.15s ease-out;
+    display: inline-block;
+    flex: 0 0 100%;
+  }
+
+
+}

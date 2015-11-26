@@ -20,6 +20,22 @@
     .modal__content{
       padding:0;
       border-radius: 0;
+      // -webkit-overflow-scrolling: touch;
+      // overflow-y:scroll;
+
+      // > * { 
+      //   transform: translate3d(0,0,0);
+      // }
+    }
+
+    .page__container{
+      height:100%;
+      -webkit-overflow-scrolling: touch;
+      overflow-y:scroll;
+
+      > * { 
+        transform: translate3d(0,0,0);
+      }
     }
   }
 

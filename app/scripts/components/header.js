@@ -18,7 +18,7 @@ class Header extends React.Component{
     }
 
     return (
-      <header className="clearfix app__header header">
+      <header className="clearfix page__container__header header">
         <div className="header__button">
           {leftButton}
         </div>
