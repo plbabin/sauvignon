@@ -87,4 +87,13 @@
     @include x-rem(font-size, 11px);
   }
 
+  .table_cell__action-list{
+    padding:0;
+    margin:0;
+
+    li{
+      display:inline-block;
+    }
+  }
+
 }

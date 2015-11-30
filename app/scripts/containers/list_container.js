@@ -26,18 +26,18 @@ class ListContainer extends React.Component {
     }else{
       listComponents = this.props.items.map((items, title)=>{
         return (
-          <span key={title}>
+          <div key={title}>
             <CellHeader title={title} />
             <List items={items} type={this.props.type} />
-          </span>
+          </div>
         );
       }).toArray();
     }
 
     return (
-      <ul className={this.getClassName()}>
+      <div className={this.getClassName()}>
         {listComponents}
-      </ul>
+      </div>
     );
   }
 

@@ -40,7 +40,7 @@ class ProductCell extends React.Component {
 
   render() {
     return (
-      <li className="table_cell product__cell">
+      <div className="table_cell product__cell">
         <div className="table_cell__imageColumn product__cell__imageColumn">
           <span className="table_cell__image" style={this.getCellStyles()}></span>
           <div className="table_cell__image-info">
@@ -70,7 +70,7 @@ class ProductCell extends React.Component {
             </div>
           </div>
         </div>
-      </li>
+      </div>
     );
   }
                                      
