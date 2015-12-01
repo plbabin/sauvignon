@@ -1,9 +1,9 @@
 import React from 'react';
-import ProductListContainer from '../product_list_container';
+import ListContainer from '../list_container';
 import HeaderActions from '../../actions/headerActions';
 import ButtonFilter from '../../components/buttons/filter';
 
-class ProductListTotryContainer extends ProductListContainer {
+class ProductListTotryContainer extends ListContainer {
 
   constructor(props, context){
     super(props);

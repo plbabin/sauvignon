@@ -7,6 +7,8 @@ import { ADD_PRODUCT,
          PRODUCT_SEARCH_FAILURE,
          PRODUCT_SEARCH_CLEAR } from '../constants/product';
 
+import { SET_SORT } from '../constants/sort';
+
 export function createProduct(product){
   return {
     type: CREATE_PRODUCT,
@@ -53,6 +55,14 @@ export function searchProduct(term) {
 export function clearSearch(){
   return {
     type: PRODUCT_SEARCH_CLEAR
+  }
+}
+
+export function setSort(type, order){
+  return {
+    type: SET_SORT,
+    sort_order: order,
+    sort_type: type
   }
 }
 

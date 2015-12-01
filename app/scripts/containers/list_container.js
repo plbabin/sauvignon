@@ -7,7 +7,8 @@ import { bindActionCreators } from 'redux'
 
 import List from '../components/list.js';
 import CellHeader from '../components/cell_header.js';
-import {isGrouped} from '../lib/helpers/sorted_group'
+
+import SortListContainer from '../containers/sort_list_container';
 
 class ListContainer extends React.Component {
 
@@ -16,12 +17,17 @@ class ListContainer extends React.Component {
   }
 
   getClassName(){
-    return classnames(this.props.className, 'product__list');
+    return classnames(
+      this.props.className, 
+      'product__list',
+      {'product__list--with-sort': this.props.ordering}
+      );
   }
 
   render() {
     let listComponents;
-    if( !isGrouped(this.props.sort_type)) {
+    console.log(this.props);
+    if( !this.props.isGrouped ) {
       listComponents = <List {...this.props} />;
     }else{
       listComponents = this.props.items.map((items, title)=>{
@@ -33,9 +39,15 @@ class ListContainer extends React.Component {
         );
       }).toArray();
     }
+    
+    let sortListComponent = '';
+    if(this.props.ordering && this.props.items.size > 0){
+      sortListComponent = <SortListContainer type={this.props.type} />;
+    }
 
     return (
       <div className={this.getClassName()}>
+        {sortListComponent}
         {listComponents}
       </div>
     );
@@ -59,6 +71,7 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(
   (state) => ({
+
   }),
   mapDispatchToProps
 )(ListContainer)

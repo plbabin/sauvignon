@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import HeaderSearchContainer from '../containers/header_search_container';
 import ListContainer from '../containers/list_container';
+import {isGrouped} from '../lib/helpers/sorted_group'
 
 import { searchProduct, clearSearch } from '../actions/product_actions';
 
@@ -74,12 +75,12 @@ class ProductAddContainer extends React.Component {
       location.state &&
       location.state.modal &&
       this.previousChildren
-    )
+    ) 
 
     return (
       <div className="page__container">
         <HeaderSearchContainer onSearchTextChange={this.onSearchTextChange.bind(this)} onClose={this.props.onHide} />
-        <ListContainer className="page__container__content" items={products} type="product" isFetching={isFetching} ordering={true}  />
+        <ListContainer className="page__container__content" items={products} type="product" isFetching={isFetching} ordering={true} isGrouped={this.props.isGrouped}  />
       </div>
     );
   }
@@ -102,11 +103,12 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state){
-  const { isFetching, search_items_ordered } = state.products;
+  const { isFetching, search_items_ordered, sort_type } = state.products;
 
   return {
     products: search_items_ordered,
-    isFetching: isFetching
+    isFetching,
+    isGrouped: isGrouped(sort_type)
   }
 }
 

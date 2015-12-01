@@ -58,9 +58,14 @@ export default function product(state = defaultState, action) {
     case SET_PRODUCT_FILTER:
       return state;
     case SET_SORT:
+      let order = action.sort_order || state.sort_order;
+      let type  = action.sort_type || state.sort_type;
+
       return Object.assign({}, state, {
-        items_ordered_ids: sort_items(state.items, action.sort_type),
-        search_items_ordered: sort_items(state.search_items, action.sort_type)
+        sort_type: type,
+        sort_order: order,
+        items_ordered_ids: sort_items(state.items, type, order),
+        search_items_ordered: sort_items(state.search_items, type, order)
       });
     default:
       return state;
