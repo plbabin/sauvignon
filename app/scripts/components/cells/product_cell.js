@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductPrice from '../product_price'
 
 class ProductCell extends React.Component {
   
@@ -44,7 +45,7 @@ class ProductCell extends React.Component {
         <div className="table_cell__imageColumn product__cell__imageColumn">
           <span className="table_cell__image" style={this.getCellStyles()}></span>
           <div className="table_cell__image-info">
-            <span className="product__price">{this.props.price_in_cents}</span>
+            <ProductPrice {...this.props} />
           </div>
         </div>
         <div className="table_cell__contentColumn product__cell__contentColumn">
