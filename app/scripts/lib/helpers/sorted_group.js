@@ -38,6 +38,28 @@ function getGroupKey(item, sort_type){
   }
 }
 
+function get_item_sort(item, sort_type){
+  switch(sort_type){
+    case SORT_TYPE_CATEGORY:
+      return item.subtype.name;
+    case SORT_TYPE_PRICE:
+      return item.price_in_cents;
+    case SORT_TYPE_NAME:
+    default:
+      return item.name;
+  }
+}
+function get_item_group_sort(item, sort_type){
+  switch(sort_type){
+    case SORT_TYPE_PRICE:
+      return item.price_in_cents;
+    case SORT_TYPE_CATEGORY:
+    case SORT_TYPE_NAME:
+    default:
+      return item.name;
+  }
+}
+
 
 //EXPORTED METHODDS
 export function isGrouped(sort_type){
@@ -64,13 +86,17 @@ export function group_items(items, sort_type, sort_order = SORT_ASC){
     if(sort_order === SORT_ASC){
       groups[groupKey].push(item);
     }else{
-      groups[groupKey] = [item].join(groups[groupKey]);
+      groups[groupKey] = [item].concat(groups[groupKey]);
     }
   });
 
   let orderedMap = new Immutable.OrderedMap(groups);
   return orderedMap.map((list,k)=>{
-    return new Immutable.List(list);
+    list = new Immutable.List(list).sortBy( (item)=> get_item_group_sort(item, sort_type) );
+    if(sort_order === SORT_DESC){
+      list = list.reverse();
+    }
+    return list;
   });
 }
 
@@ -80,16 +106,7 @@ export function sort_items(items, sort_type, sort_order = SORT_ASC){
   }
 
   // go through all product and create a new sort
-  let sorted_items = items.sortBy((item)=>{
-    switch(sort_type){
-      case SORT_TYPE_NAME:
-        return item.name;
-      case SORT_TYPE_CATEGORY:
-        return item.subtype.name;
-      case SORT_TYPE_PRICE:
-        return item.price_in_cents;
-    }
-  });
+  let sorted_items = items.sortBy((item)=> get_item_sort(item, sort_type) );
 
   sorted_items = group_items(sorted_items, sort_type, sort_order);
 

@@ -8,9 +8,9 @@ export default class CellHeader extends React.Component {
 
   render() {
     return (
-      <li className="table_cell table_cell--header">
+      <div className="table_cell table_cell--header">
         {this.props.title}
-      </li>
+      </div>
     );
   }
                                      

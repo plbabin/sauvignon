@@ -38,7 +38,7 @@ import merge from 'utils-merge';
 // import lrload from 'livereactload';
 
 // server
-import browserSync, { reload } from 'browser-sync';
+import browserSync, { reload, stream } from 'browser-sync';
 import htmlReplace from 'gulp-html-replace';
 
 // nicer browserify errors
@@ -191,7 +191,7 @@ gulp.task('styles', () => {
   .pipe(postcss([vars, extend, nested, autoprefixer, cssnano]))
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(paths.distCss))
-  .pipe(reload({stream: true}));
+  .pipe(stream({match: '**/*.css'}));
 });
 
 gulp.task('htmlReplace', () => {
