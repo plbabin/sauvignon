@@ -32,40 +32,53 @@
   .page-transition__modal-enter{
     transition: transform 200ms linear, opacity .3s linear;
   }
-
-  &:not(.page-transition--is-closing) .page-transition__modal-enter{
-    position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:100;
-    transform:translateY(100%);
-
-    &.page-transition__modal-enter-active{
-      transform:translateY(0);
-    }
-  }
   
-  &:not(.page-transition--is-closing) .page-transition__modal-leave{
-    opacity:1;
 
-    &.page-transition__modal-leave-active{
-      opacity:0.99;
+  &.page-transition--push{
+    .page-transition__modal-enter{
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      z-index:100;
+      transform:translateY(100%);
+
+      &.page-transition__modal-enter-active{
+        transform:translateY(0);
+      }
+    }
+
+    .page-transition__modal-leave{
+      opacity:1;
+
+      &.page-transition__modal-leave-active{
+        opacity:0.99;
+      }
     }
   }
 
-  &.page-transition--is-closing .page-transition__modal-leave{
-    position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:100;
-    transform:translateY(0);
+  &.page-transition--pull{
+    .page-transition__modal-enter{
+      opacity:0.99;
 
-    &.page-transition__modal-leave-active{
-      transform:translateY(100%);
+      &.page-transition__modal-enter-active{
+        opacity:1;
+      }
+    }
+
+    .page-transition__modal-leave{
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      z-index:100;
+      transform:translateY(0);
+
+      &.page-transition__modal-leave-active{
+        transform:translateY(100%);
+      }
     }
   }
 

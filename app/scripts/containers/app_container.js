@@ -14,7 +14,7 @@ import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
 
 import connectHistory from '../lib/connect_history'
 import {showNavigation, hideNavigation} from '../actions/nav_actions'
-import {NAV_ANIMATION_MODAL} from '../constants/NavTypes'
+import {NAV_ANIMATION_MODAL, NAV_PULL, NAV_PUSH} from '../constants/NavTypes'
 
 import classnames from 'classnames';
 
@@ -29,12 +29,16 @@ class AppContainer extends React.Component {
     this.handleReload();
   }
 
-  componentWillReceiveProps(nextProps){
-    const {location} = nextProps;
-    if(location && 
+  isLocationModalAndPush(){
+    const {location} = this.props;
+    return (location && 
        location.state && 
        location.state.animation === NAV_ANIMATION_MODAL && 
-       !location.state.closing){
+       location.state.direction === NAV_PUSH)
+  }
+
+  componentDidUpdate(){
+    if(this.isLocationModalAndPush()){
       this.props.hideNavigation();
     }else{
       this.props.showNavigation();
@@ -55,7 +59,7 @@ class AppContainer extends React.Component {
         animation:NAV_ANIMATION_MODAL, 
         fullscreen:true,
         returnTo:this.props.location,
-        closing:false
+        direction:NAV_PUSH
       }, '/products/add')
     );
   }
@@ -79,46 +83,28 @@ class AppContainer extends React.Component {
     return `page-transition__${animation}`;
   }
 
-  getTransitionLeaveStatus(){
-    const { location } = this.props;
-    let status = true;
-
-    if (location && location.state && location.state.animation){
-      if(location.state.animation === NAV_ANIMATION_MODAL && location.state.open){
-        status = false;
-      }
-    }
-
-    return status;
-  }
-
-  getTransitionEnterStatus(){
-    const { location } = this.props;
-    let status = true;
-
-    if (location && location.state && location.state.animation){
-      if(location.state.animation === NAV_ANIMATION_MODAL && !location.state.open){
-        status = false;
-      }
-    }
-
-    return status;
+  isContainerFullscreen(){
+    const {location} = this.props;
+    return (location && location.state && location.state.fullscreen);
   }
 
   getContainerClass(){
-    const {location} = this.props;
     return classnames(
       'page-container',
-      {'page-container--fullscreen':(location && location.state && location.state.fullscreen)}
+      {'page-container--fullscreen':(this.isContainerFullscreen())}
     );
   }
 
   getComponentClassname(){
     const {location} = this.props;
+    let direction = NAV_PUSH;
+    if(location.state && location.state.direction){
+      direction = location.state.direction
+    }
     return classnames(
       'page-container__content-wrapper',
       'page-transition',
-      {'page-transition--is-closing':(location && location.state && location.state.closing)}
+      `page-transition--${direction}`
     );
   }
 

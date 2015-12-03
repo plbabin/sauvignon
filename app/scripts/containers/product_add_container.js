@@ -9,7 +9,7 @@ import {isGrouped} from '../lib/helpers/sorted_group'
 
 import { searchProduct, clearSearch } from '../actions/product_actions';
 import { hideNavigation, showNavigation } from '../actions/nav_actions';
-import {NAV_ANIMATION_MODAL} from '../constants/NavTypes'
+import {NAV_ANIMATION_MODAL, NAV_PULL} from '../constants/NavTypes'
 
 import connectHistory from '../lib/connect_history'
 
@@ -25,12 +25,7 @@ class ProductAddContainer extends React.Component {
     this.cancelOldRequest();
   }
 
-  componentWillMount(callback){
-    this.props.hideNavigation();
-    //this.props.clearSearch(); //clear search when opening container
-  }
-
-  componentWillUnmount(callback){
+  componentWillUnmount(){
     this.cancelOldRequest();
   }
 
@@ -52,7 +47,7 @@ class ProductAddContainer extends React.Component {
     }
   }
 
-  componentDidUpdate(newProps,){
+  componentDidUpdate(newProps,newState){
     this.triggerQueuedRequest();
   }
 
@@ -82,7 +77,7 @@ class ProductAddContainer extends React.Component {
     const state = {
       animation:NAV_ANIMATION_MODAL, 
       fullscreen:false,
-      closing:true
+      direction:NAV_PULL
     }
     this.props.history.replaceState(state, location.state.returnTo.pathname);
   }
