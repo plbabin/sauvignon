@@ -19,6 +19,7 @@ class ListContainer extends React.Component {
   getClassName(){
     return classnames(
       this.props.className, 
+      'list',
       'product__list',
       {'product__list--with-sort': this.props.ordering}
       );
@@ -26,7 +27,7 @@ class ListContainer extends React.Component {
 
   render() {
     let listComponents;
-    console.log(this.props);
+
     if( !this.props.isGrouped ) {
       listComponents = <List {...this.props} />;
     }else{

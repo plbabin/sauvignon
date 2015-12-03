@@ -13,7 +13,7 @@ import uglify from 'gulp-uglify';
 import notify from 'gulp-notify';
 import sourcemaps from 'gulp-sourcemaps';
 import postcss from 'gulp-postcss';
-import image from 'gulp-image';
+import image from 'gulp-imagemin';
 import gls from 'gulp-live-server'
 import babel from 'gulp-babel'
 import rename from 'gulp-rename'
@@ -53,7 +53,7 @@ const paths = {
   srcJsx: 'app/scripts/main.js',
   srcLintJsx: ['app/scripts/**/*'],
   srcCss: 'app/scss/**/*.scss',
-  srcImg: ['app/images/**', '!app/images/**/*.svg'],
+  srcImg: ['app/images/**/*.jpg', '!app/images/**/*.svg', '!app/images/icons/**/*'],
   srcIcons: 'app/images/icons/**/*.svg',
   srcImgFavicons: 'app/favicons/**/*.png',
   srcFavicons: 'app/favicons/**/*',
@@ -207,7 +207,7 @@ gulp.task('html', () => {
 
 gulp.task('images', () => {
   gulp.src(paths.srcImg)
-  .pipe(image())
+  .pipe(image({progressive: true,}))
   .pipe(gulp.dest(paths.distImg));
 });
 
@@ -242,8 +242,12 @@ gulp.task('browserSync', ['server'], () => {
 
   browserSync.init(null, {
     proxy: 'http://localhost:'+port,
-    files: ['dist/**/*.*'],
-    port: 7000,
+    files: [
+      "dist/css/*.css", 
+      "dist/images/**/*.*", 
+      "app/js/*.js"
+    ],
+    port: 7000
   });
 });
 

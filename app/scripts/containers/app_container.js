@@ -8,29 +8,40 @@ import { bindActionCreators } from 'redux'
 import HeaderContainer from '../containers/header_container';
 import ModalContainer from '../containers/modal_container';
 
-import Navigation from '../components/navigation';
+import NavigationContainer from '../containers/navigation_container';
 
 import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
+
+import connectHistory from '../lib/connect_history'
+import {showNavigation, hideNavigation} from '../actions/nav_actions'
+import {NAV_ANIMATION_MODAL, NAV_PULL, NAV_PUSH} from '../constants/NavTypes'
+
+import classnames from 'classnames';
 
 class AppContainer extends React.Component {
   
   constructor(props){
     super(props);
-    this.state = {isAddScreenActive: false};
 
     let {location} = this.props;
     
     // IF MODAL, return to where you should be
-    this.hideModal();
+    this.handleReload();
   }
 
-  componentWillReceiveProps(nextProps){
-    if ((
-      nextProps.location.state &&
-      nextProps.location.state.modal
-    )) {
-      // save the old children (just like animation)
-      this.previousChildren = this.props.children
+  isLocationModalAndPush(){
+    const {location} = this.props;
+    return (location && 
+       location.state && 
+       location.state.animation === NAV_ANIMATION_MODAL && 
+       location.state.direction === NAV_PUSH)
+  }
+
+  componentDidUpdate(){
+    if(this.isLocationModalAndPush()){
+      this.props.hideNavigation();
+    }else{
+      this.props.showNavigation();
     }
   }
 
@@ -44,75 +55,74 @@ class AppContainer extends React.Component {
     const { dispatch } = this.props;
     //let location = this.props.history.createLocation('/products/add', {modal:true}, null, 'product-add');
     //this.props.history.transitionTo(location);
-    dispatch(pushState({modal:true, key: 'product-add', returnTo: this.props.location.pathname}, '/products/add'));
+    dispatch( pushState({
+        animation:NAV_ANIMATION_MODAL, 
+        fullscreen:true,
+        returnTo:this.props.location,
+        direction:NAV_PUSH
+      }, '/products/add')
+    );
   }
 
-  hideModal(e){
+  handleReload(){
+    const { location,history,dispatch } = this.props;
 
-    if(e){
-      e.preventDefault();
-      e.stopPropagation();
-      e.nativeEvent.stopImmediatePropagation();
-    }
-
-    const { location } = this.props;
-
-    if(location.state && location.state.modal){
-      let pathname = '/';
-      if(location.state.returnTo){
-        pathname = location.state.returnTo;
-      }
-
-      const { dispatch } = this.props;
-      dispatch(replaceState(null, pathname));
-    }
-    
+    if(this.props.history.isActive('/products/add')){
+        dispatch(replaceState(null, '/'));
+    } 
   }
 
   getCurrentTransition(){
+    let animation = 'toggle';
     let { location } = this.props;
     
-    if (location){
-      switch(location.key){
-        case 'product-add':
-          return 'page-transition'; //no transition for the content, it will be handle in the modal container
-      }
+    if (location && location.state && location.state.animation){
+      animation = location.state.animation
     }
 
-    return 'page-transition__toggle';
+    return `page-transition__${animation}`;
+  }
+
+  isContainerFullscreen(){
+    const {location} = this.props;
+    return (location && location.state && location.state.fullscreen);
+  }
+
+  getContainerClass(){
+    return classnames(
+      'page-container',
+      {'page-container--fullscreen':(this.isContainerFullscreen())}
+    );
+  }
+
+  getComponentClassname(){
+    const {location} = this.props;
+    let direction = NAV_PUSH;
+    if(location.state && location.state.direction){
+      direction = location.state.direction
+    }
+    return classnames(
+      'page-container__content-wrapper',
+      'page-transition',
+      `page-transition--${direction}`
+    );
   }
 
   render() {
-    let { location } = this.props
-
-    let isModal = (
-      location && 
-      location.state &&
-      location.state.modal &&
-      this.previousChildren
-    )
-
-    //var name = this.context.router.getCurrentPath();
     return (
-      <div className="page__container">
+      <div className={this.getContainerClass()}>
         <HeaderContainer />
         <RouteCSSTransitionGroup
-          component="div" className="page__container__content page-transition" transitionName={this.getCurrentTransition()}
-          transitionEnterTimeout={500} transitionLeaveTimeout={500}
-        >
-          {isModal ?
-            this.previousChildren :
-            this.props.children
-          }
+          component="div"
+          className={this.getComponentClassname()} 
+          transitionName={this.getCurrentTransition()}
+          transitionEnterTimeout={200} 
+          transitionLeaveTimeout={200}
+          transitionAppear={false}
+          >
+          {this.props.children}
         </RouteCSSTransitionGroup>
-        <Navigation {...this.state} onClickProductAdd={this.showProductAddModal.bind(this)} />
-        
-        {isModal && (
-          <ModalContainer returnTo={location.state.returnTo} isFullscreen={true} onHide={this.hideModal.bind(this)}>
-            {this.props.children}
-          </ModalContainer>
-        )}
-
+        <NavigationContainer onClickProductAdd={this.showProductAddModal.bind(this)} />
       </div>
     );
   }
@@ -120,12 +130,16 @@ class AppContainer extends React.Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {dispatch}
+  return {
+    dispatch,
+    hideNavigation: bindActionCreators(hideNavigation, dispatch),
+    showNavigation: bindActionCreators(showNavigation, dispatch),
+  }
 }
 
-export default connect(
+export default connectHistory(connect(
   (state) => ({
     router: state.router
   }),
   mapDispatchToProps
-)(AppContainer)
+)(AppContainer))

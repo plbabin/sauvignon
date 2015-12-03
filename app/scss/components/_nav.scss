@@ -6,7 +6,12 @@
   bottom:0;
   left:0;
   width:100%;
-  
+  transition:0.15s ease-out transform;
+
+  &.nav--is-hidden{
+    transform:translateY(125%);
+  }
+
   .nav__list{
     display:flex;
     padding:0;

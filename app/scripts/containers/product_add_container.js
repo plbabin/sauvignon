@@ -8,6 +8,10 @@ import ListContainer from '../containers/list_container';
 import {isGrouped} from '../lib/helpers/sorted_group'
 
 import { searchProduct, clearSearch } from '../actions/product_actions';
+import { hideNavigation, showNavigation } from '../actions/nav_actions';
+import {NAV_ANIMATION_MODAL, NAV_PULL} from '../constants/NavTypes'
+
+import connectHistory from '../lib/connect_history'
 
 class ProductAddContainer extends React.Component {
   
@@ -21,8 +25,8 @@ class ProductAddContainer extends React.Component {
     this.cancelOldRequest();
   }
 
-  componentWillMount(){
-    this.props.clearSearch(); //clear search when opening container
+  componentWillUnmount(){
+    this.cancelOldRequest();
   }
 
   onSearchTextChange(newSearchText) {
@@ -43,12 +47,8 @@ class ProductAddContainer extends React.Component {
     }
   }
 
-  componentDidUpdate(newProps,){
+  componentDidUpdate(newProps,newState){
     this.triggerQueuedRequest();
-  }
-
-  componentWillUnmount(){
-    this.cancelOldRequest();
   }
 
   cancelOldRequest(){
@@ -67,6 +67,21 @@ class ProductAddContainer extends React.Component {
     }
   } 
 
+  onClose(e){
+    if(e){
+      e.preventDefault();
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+    }
+    const {location} = this.props;
+    const state = {
+      animation:NAV_ANIMATION_MODAL, 
+      fullscreen:false,
+      direction:NAV_PULL
+    }
+    this.props.history.replaceState(state, location.state.returnTo.pathname);
+  }
+
   render() {
     const { location, products, isFetching } = this.props
 
@@ -78,9 +93,9 @@ class ProductAddContainer extends React.Component {
     ) 
 
     return (
-      <div className="page__container">
-        <HeaderSearchContainer onSearchTextChange={this.onSearchTextChange.bind(this)} onClose={this.props.onHide} />
-        <ListContainer className="page__container__content" items={products} type="product" isFetching={isFetching} ordering={true} isGrouped={this.props.isGrouped}  />
+      <div className="page-container">
+        <HeaderSearchContainer onSearchTextChange={this.onSearchTextChange.bind(this)} onClose={this.onClose.bind(this)} />
+        <ListContainer className="page-container__content" items={products} type="product" isFetching={isFetching} ordering={true} isGrouped={this.props.isGrouped}  />
       </div>
     );
   }
@@ -98,7 +113,8 @@ function mapDispatchToProps(dispatch) {
   return {
     dispatch, 
     searchProduct: bindActionCreators(searchProduct, dispatch),
-    clearSearch: bindActionCreators(clearSearch, dispatch)
+    clearSearch: bindActionCreators(clearSearch, dispatch),
+    hideNavigation: bindActionCreators(hideNavigation, dispatch),
   }
 }
 
@@ -112,6 +128,6 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(
+export default connectHistory(connect(
   mapStateToProps, mapDispatchToProps
-)(ProductAddContainer)
+)(ProductAddContainer))

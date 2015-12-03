@@ -1,4 +1,8 @@
-import {SET_HEADER_TITLE, SET_HEADER_LEFT_BUTTON, SET_HEADER_RIGHT_BUTTON} from '../constants/HeaderTypes'
+import {
+  SET_HEADER_TITLE, 
+  SET_HEADER_LEFT_BUTTON, 
+  SET_HEADER_RIGHT_BUTTON
+} from '../constants/HeaderTypes'
 
 export function setHeaderTitle(title){
   return {
