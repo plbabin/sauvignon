@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import StaticContainer from 'react-static-container'
+import StaticContainer from './static_container'
 
 class RouteCSSTransitionGroup extends React.Component {
   constructor(props, context) {
@@ -20,7 +20,7 @@ class RouteCSSTransitionGroup extends React.Component {
   render() {
     const { children, ...props } = this.props
     const { previousPathname } = this.state
-
+    // console.log('key', (previousPathname || this.context.location.pathname));
     return (
       <ReactCSSTransitionGroup {...props}>
         <StaticContainer

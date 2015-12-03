@@ -15,6 +15,10 @@ class ModalContainer extends React.Component{
     this.newChildren = React.cloneElement(this.props.children, Object.assign({}, this.props.children.props, other));
   }
 
+  componentWillReceiveProps(){
+    console.log('ModalContainer', newProps);
+  }
+
   getModalClassName(){
     return classnames(
       'modal', 

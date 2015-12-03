@@ -14,7 +14,7 @@ class HeaderSearchContainer extends React.Component {
   render() {
 
     return (
-      <div className="page__container__header header header--search">
+      <div className="page-container__header header header--search">
         <SearchInput onSearchTextChange={this.props.onSearchTextChange} />
         <div className="header--search__close">
           <a onClick={this.props.onClose}>close</a>

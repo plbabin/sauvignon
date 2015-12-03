@@ -29,7 +29,7 @@ class HomeContainer extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="page-container__content">
         <h1>Home Area</h1>
         
       </div>

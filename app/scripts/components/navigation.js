@@ -20,7 +20,7 @@ class Navigation extends React.Component{
 
   render() {
     return (
-      <nav className="page__container__nav nav">
+      <nav className={this.props.className}>
         <ul className="nav__list">
           <li className={this.getListClassName('love')}>
             <NavigationElement route="products/loved" icon="love">Loved</NavigationElement>

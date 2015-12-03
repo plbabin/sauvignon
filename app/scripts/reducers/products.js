@@ -25,7 +25,6 @@ const defaultState = {
   sort_order:SORT_ASC,
   filter:null
 }
-console.log('defaultState', defaultState)
 
 export default function product(state = defaultState, action) {
   switch(action.type) {
