@@ -14,20 +14,17 @@ export default (
   <Route path="/" component={ AppContainer }>
 
     <Route path="products">
-      <Route path="loved" component={ProductListLovedContainer}>
-        <Route path=":productId" component={ProductContainer} />
-      </Route>
-      <Route path="totry" component={ProductListTotryContainer}>
-        <Route path=":productId" component={ProductContainer} />
-      </Route>
+      <Route path="loved" component={ProductListLovedContainer}/>
+      <Route path="totry" component={ProductListTotryContainer}/>
+    </Route>
 
+    <Route path="product">
       <Route name="product-add" path="add" component={ProductAddContainer} />
-
+      <Route path=":itemId" component={ProductContainer} />
     </Route>
 
     <Route path="settings" component={ InfoContainer } />
     <Route path="stores" component={ InfoContainer } />
-    <Route path="add" component={ InfoContainer } />
 
     <IndexRoute name="home" component={HomeContainer} />
   </Route>

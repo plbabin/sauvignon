@@ -21,7 +21,7 @@ class List extends React.Component {
 
   render() {
     let CellComponent = this.getCellType();
-    var itemsComponents = this.props.items.map(item => <CellComponent key={item.id} {...item} />);
+    var itemsComponents = this.props.items.map(item => <CellComponent key={item.id} {...item} onclick={this.props.onclick} />);
 
     return (
       <div>
@@ -34,6 +34,7 @@ class List extends React.Component {
 
 List.propTypes = {
   items : React.PropTypes.instanceOf(Immutable.List).isRequired,
+  onclick: React.PropTypes.func
 };
 
 export default List;
