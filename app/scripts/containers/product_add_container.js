@@ -93,9 +93,9 @@ class ProductAddContainer extends React.Component {
     ) 
 
     return (
-      <div className="page-container">
+      <div className="page__container">
         <HeaderSearchContainer onSearchTextChange={this.onSearchTextChange.bind(this)} onClose={this.onClose.bind(this)} />
-        <ListContainer className="page-container__content" items={products} type="product" isFetching={isFetching} ordering={true} isGrouped={this.props.isGrouped}  />
+        <ListContainer className="page__container__content" items={products} type="product" isFetching={isFetching} ordering={true} isGrouped={this.props.isGrouped}  />
       </div>
     );
   }

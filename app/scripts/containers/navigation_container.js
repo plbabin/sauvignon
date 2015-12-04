@@ -11,9 +11,8 @@ class NavigationContainer extends React.Component{
 
   getClassnames(){
     return classnames(
-      'nav',
-      {'nav--is-hidden':!this.props.isVisible},
-      'page__container__nav',
+      'page__nav',
+      'nav'
     );
   }
 

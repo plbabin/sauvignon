@@ -1,16 +1,12 @@
 import React from 'react';
+import classnames from 'classnames';
 import { Route, RouteHandler, Link } from 'react-router';
-
 import { connect }            from 'react-redux';
 import { pushState, replaceState } from 'redux-router';
 import { bindActionCreators } from 'redux'
-
-import HeaderContainer from '../containers/header_container';
-import ModalContainer from '../containers/modal_container';
+import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
 
 import NavigationContainer from '../containers/navigation_container';
-
-import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
 
 import connectHistory from '../lib/connect_history'
 import {showNavigation, hideNavigation} from '../actions/nav_actions'
@@ -22,7 +18,6 @@ import {
   NAV_PUSH
 } from '../constants/NavTypes'
 
-import classnames from 'classnames';
 
 class AppContainer extends React.Component {
   
@@ -98,8 +93,8 @@ class AppContainer extends React.Component {
 
   getContainerClass(){
     return classnames(
-      'page-container',
-      {'page-container--fullscreen':(this.isContainerFullscreen())}
+      'page-wrapper',
+      {'page--fullscreen':(this.isContainerFullscreen())}
     );
   }
 
@@ -110,7 +105,7 @@ class AppContainer extends React.Component {
       direction = location.state.direction
     }
     return classnames(
-      'page-container__content-wrapper',
+      'page',
       'page-transition',
       `page-transition--${direction}`
     );
@@ -143,7 +138,6 @@ class AppContainer extends React.Component {
   render() {
     return (
       <div className={this.getContainerClass()}>
-        <HeaderContainer />
         <RouteCSSTransitionGroup
           component="div"
           className={this.getComponentClassname()} 
