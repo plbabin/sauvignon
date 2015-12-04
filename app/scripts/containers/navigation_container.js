@@ -1,7 +1,6 @@
 import React from 'react';
 import Navigation from '../components/navigation';
 import classnames from 'classnames'
-import { connect }            from 'react-redux';
 
 class NavigationContainer extends React.Component{
 
@@ -17,11 +16,10 @@ class NavigationContainer extends React.Component{
   }
 
   render() {
-    const {onClickProductAdd, isVisible} = this.props;
+    const {onClickProductAdd} = this.props;
 
     return (
       <Navigation onClickProductAdd={onClickProductAdd} 
-                  isVisible={isVisible} 
                   className={this.getClassnames()} />
     );
   }
@@ -32,9 +30,4 @@ function mapDispatchToProps(dispatch) {
   return {dispatch}
 }
 
-export default connect(
-  (state) => ({
-    isVisible:(state.nav.get('visible')===true)
-  }),
-  mapDispatchToProps
-)(NavigationContainer)
+export default NavigationContainer

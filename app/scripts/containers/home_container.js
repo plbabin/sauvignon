@@ -31,7 +31,7 @@ class HomeContainer extends React.Component {
 
     return (
       <div className="page__container">
-        <HeaderContainer />
+        <HeaderContainer title="Home Area" />
         <div className="page__container__content">
           <h1>Home Area</h1>
         </div>

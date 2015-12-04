@@ -9,7 +9,6 @@ import RouteCSSTransitionGroup from '../lib/RouteCSSTransitionGroup'
 import NavigationContainer from '../containers/navigation_container';
 
 import connectHistory from '../lib/connect_history'
-import {showNavigation, hideNavigation} from '../actions/nav_actions'
 import {
   NAV_ANIMATION_MODAL,
   NAV_ANIMATION_SLIDE,
@@ -39,11 +38,6 @@ class AppContainer extends React.Component {
   }
 
   componentDidUpdate(){
-    if(this.isLocationModalAndPush()){
-      this.props.hideNavigation();
-    }else{
-      this.props.showNavigation();
-    }
   }
 
   showProductAddModal(e){
@@ -158,8 +152,6 @@ class AppContainer extends React.Component {
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    hideNavigation: bindActionCreators(hideNavigation, dispatch),
-    showNavigation: bindActionCreators(showNavigation, dispatch),
   }
 }
 
