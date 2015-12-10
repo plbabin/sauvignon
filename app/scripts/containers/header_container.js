@@ -1,5 +1,4 @@
 import React from 'react';
-import HeaderActions from '../actions/headerActions';
 import Header from '../components/header';
 
 import { bindActionCreators } from 'redux';
