@@ -6,6 +6,9 @@ import { ADD_PRODUCT,
          PRODUCT_SEARCH_REQUEST,
          PRODUCT_SEARCH_SUCCESS,
          PRODUCT_SEARCH_FAILURE,
+         PRODUCT_FETCH_REQUEST,
+         PRODUCT_FETCH_SUCCESS,
+         PRODUCT_FETCH_FAILURE,
          SET_PRODUCT_FILTER,
          PRODUCT_SEARCH_CLEAR } from '../constants/product'
 
@@ -21,6 +24,8 @@ const defaultState = {
   search_items_ordered: new Immutable.List(),
 
   isFetching: false,
+  last_product_fetched:null,
+
   sort_type:SORT_TYPE_PRICE,
   sort_order:SORT_ASC,
   filter:null
@@ -35,11 +40,16 @@ export default function product(state = defaultState, action) {
       return state.set(action.id, action.text);
     case DELETE_PRODUCT:
       return state.delete(action.id);
-
+    case PRODUCT_FETCH_REQUEST:
     case PRODUCT_SEARCH_REQUEST:
       return Object.assign({}, state, {
         isFetching: true
       })
+    case PRODUCT_FETCH_SUCCESS:
+      const product = action.response.entities.products[action.response.result]
+      return Object.assign({}, state, {
+        last_product_fetched: product
+      });
     case PRODUCT_SEARCH_SUCCESS:
       const products_list = (new Immutable.Map(action.response.entities.products)).toList();
       return Object.assign({}, state, {

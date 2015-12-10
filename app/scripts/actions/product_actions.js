@@ -5,6 +5,9 @@ import { ADD_PRODUCT,
          PRODUCT_SEARCH_REQUEST,
          PRODUCT_SEARCH_SUCCESS,
          PRODUCT_SEARCH_FAILURE,
+         PRODUCT_FETCH_REQUEST,
+         PRODUCT_FETCH_SUCCESS,
+         PRODUCT_FETCH_FAILURE,
          PRODUCT_SEARCH_CLEAR } from '../constants/product';
 
 import { SET_SORT } from '../constants/sort';
@@ -31,8 +34,16 @@ export function deleteProduct(id){
   };
 }
 
-export function parseProducts(product){
-
+export function fetchProduct(product_id){
+  return {
+    product_id,
+    [CALL_API]: {
+      types: [ PRODUCT_FETCH_REQUEST, PRODUCT_FETCH_SUCCESS, PRODUCT_FETCH_FAILURE ],
+      endpoint: `products/${product_id}`,
+      params: {},
+      schema: Schemas.PRODUCT
+    }
+  }
 }
 
 // Fetches a list of products based on a search term
