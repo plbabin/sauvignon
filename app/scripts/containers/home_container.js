@@ -1,4 +1,5 @@
 import React from 'react';
+import HeaderContainer from '../containers/header_container';
 // import ItemList from '../components/itemList';
 // import ItemStore from '../stores/itemStore';
 // import ItemActions from '../actions/itemActions';
@@ -29,9 +30,11 @@ class HomeContainer extends React.Component {
   render() {
 
     return (
-      <div className="page-container__content">
-        <h1>Home Area</h1>
-        
+      <div className="page__container">
+        <HeaderContainer title="Home Area" />
+        <div className="page__container__content">
+          <h1>Home Area</h1>
+        </div>
       </div>
     );
   }

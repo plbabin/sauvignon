@@ -3,7 +3,7 @@
 
   .page-transition__toggle-leave,
   .page-transition__toggle-enter{
-    transition: opacity 200ms linear;
+    transition: opacity 250ms linear;
   }
 
   .page-transition__toggle-enter{
@@ -30,7 +30,7 @@
   
   .page-transition__modal-leave,
   .page-transition__modal-enter{
-    transition: transform 200ms linear, opacity .3s linear;
+    transition: transform 250ms linear, opacity 250ms linear;
   }
   
 
@@ -83,9 +83,11 @@
   }
 
 
-  .page-transition__slide-leave,
+  .page-transition__slide-leave{
+    transition: transform 400ms linear;
+  }
   .page-transition__slide-enter{
-    transition: transform 200ms linear;
+    transition: transform 250ms linear;
   }
   
   .page-transition__slide-enter{
@@ -99,7 +101,7 @@
 
   &.page-transition--push{
     .page-transition__slide-enter{
-      transform:translateX(100%);
+      transform:translateX(-100%);
 
       &.page-transition__slide-enter-active{
         transform:translateY(0);
@@ -110,7 +112,7 @@
       transform:translateY(0);
 
       &.page-transition__slide-leave-active{
-        transform:translateX(100%);
+        transform:translateX(-100%);
       }
     }
   }

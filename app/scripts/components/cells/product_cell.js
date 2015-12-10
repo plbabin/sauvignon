@@ -39,9 +39,15 @@ class ProductCell extends React.Component {
     return null;
   }
 
+  doOnClick(e){
+    if(this.props.onclick){
+      this.props.onclick(e,this.props.id);
+    }
+  }
+
   render() {
     return (
-      <div className="table_cell product__cell">
+      <div className="table_cell product__cell" onClick={this.doOnClick.bind(this)}>
         <div className="table_cell__imageColumn product__cell__imageColumn">
           <span className="table_cell__image" style={this.getCellStyles()}></span>
           <div className="table_cell__image-info">
@@ -78,7 +84,7 @@ class ProductCell extends React.Component {
 }
 
 ProductCell.propTypes = {
-  
+  onclick: React.PropTypes.func
 };
 
 export default ProductCell;

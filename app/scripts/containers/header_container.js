@@ -12,17 +12,11 @@ class HeaderContainer extends React.Component{
   }
 
   render() {
-    let props = this.props.header.toJS();
-    
     return(
-      <Header {...props} />
+      <Header {...this.props} />
     );
   }
 
 }
 
-export default connect(
-  state => ({
-    header: state.header
-  })
-)(HeaderContainer)
+export default HeaderContainer

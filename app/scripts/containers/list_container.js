@@ -10,6 +10,9 @@ import CellHeader from '../components/cell_header.js';
 
 import SortListContainer from '../containers/sort_list_container';
 
+import connectHistory from '../lib/connect_history'
+import {NAV_ANIMATION_SLIDE, NAV_PUSH} from '../constants/NavTypes'
+
 class ListContainer extends React.Component {
 
   constructor(props){
@@ -25,17 +28,33 @@ class ListContainer extends React.Component {
       );
   }
 
+  onCellClick(e, item_id){
+    const {history,location} = this.props;
+    let fullscreen = false;
+
+    if(history.isActive('/product/add')){
+      fullscreen = true;
+    }
+
+    const state = {
+      animation:NAV_ANIMATION_SLIDE, 
+      fullscreen:fullscreen,
+      direction:NAV_PUSH
+    }
+    history.pushState(state, '/product/'+item_id);
+  }
+
   render() {
     let listComponents;
 
     if( !this.props.isGrouped ) {
-      listComponents = <List {...this.props} />;
+      listComponents = <List {...this.props} onclick={this.onCellClick.bind(this)} />;
     }else{
       listComponents = this.props.items.map((items, title)=>{
         return (
           <div key={title}>
             <CellHeader title={title} />
-            <List items={items} type={this.props.type} />
+            <List items={items} type={this.props.type} onclick={this.onCellClick.bind(this)} />
           </div>
         );
       }).toArray();
@@ -70,9 +89,9 @@ function mapDispatchToProps(dispatch) {
   return {dispatch}
 }
 
-export default connect(
+export default connectHistory(connect(
   (state) => ({
-
+    location: state.router.location
   }),
   mapDispatchToProps
-)(ListContainer)
+)(ListContainer))

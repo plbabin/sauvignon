@@ -18,7 +18,7 @@ class Header extends React.Component{
     }
 
     return (
-      <header className="clearfix page-container__header header">
+      <header className="clearfix page__container__header header">
         <div className="header__button">
           {leftButton}
         </div>
@@ -33,9 +33,9 @@ class Header extends React.Component{
 }
 
 Header.propTypes = {
-  leftButton: React.PropTypes.any.isRequired,
+  leftButton: React.PropTypes.any,
   title: React.PropTypes.string.isRequired,
-  rightButton: React.PropTypes.any.isRequired
+  rightButton: React.PropTypes.any
 }
 
 export default Header;

@@ -33,7 +33,7 @@ class AddScreenSelector extends React.Component{
     e.nativeEvent.stopImmediatePropagation();
     const { dispatch } = this.props;
 
-    dispatch(pushState(null, '/products/add'));
+    dispatch(pushState(null, '/product/add'));
 
     this.props.onToggleModal();
   }
